@@ -1,4 +1,4 @@
-package net.insane96mcp.lib;
+package net.insane96mcp.vulcanite.lib;
 
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item.ToolMaterial;

@@ -1,4 +1,4 @@
-package net.insane96mcp.lib;
+package net.insane96mcp.vulcanite.lib;
 
 public class Names {
 	public static final String VULCANITE_ITEM = "vulcanite";

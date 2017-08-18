@@ -1,9 +1,9 @@
 package net.insane96mcp.vulcanite.init;
 
-import net.insane96mcp.lib.MaterialHandler;
-import net.insane96mcp.lib.Names;
 import net.insane96mcp.vulcanite.Vulcanite;
 import net.insane96mcp.vulcanite.item.*;
+import net.insane96mcp.vulcanite.lib.MaterialHandler;
+import net.insane96mcp.vulcanite.lib.Names;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;

@@ -1,8 +1,8 @@
 package net.insane96mcp.vulcanite;
 
-import net.insane96mcp.lib.CustomEventHandler;
 import net.insane96mcp.vulcanite.init.ModBlocks;
 import net.insane96mcp.vulcanite.init.ModItems;
+import net.insane96mcp.vulcanite.lib.CustomEventHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

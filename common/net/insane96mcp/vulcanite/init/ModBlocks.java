@@ -1,10 +1,10 @@
 package net.insane96mcp.vulcanite.init;
 
 import akka.dispatch.sysmsg.Create;
-import net.insane96mcp.lib.Names;
 import net.insane96mcp.vulcanite.Vulcanite;
 import net.insane96mcp.vulcanite.block.BlockVulcanite;
 import net.insane96mcp.vulcanite.block.BlockVulcaniteOre;
+import net.insane96mcp.vulcanite.lib.Names;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;

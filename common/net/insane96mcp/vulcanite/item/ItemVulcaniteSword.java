@@ -16,7 +16,7 @@ public class ItemVulcaniteSword extends ItemSword{
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return "item." + Vulcanite.RESOURCE_PREFIX + net.insane96mcp.lib.Names.VULCANITE_SWORD;
+		return "item." + Vulcanite.RESOURCE_PREFIX + net.insane96mcp.vulcanite.lib.Names.VULCANITE_SWORD;
 	}
 	
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {

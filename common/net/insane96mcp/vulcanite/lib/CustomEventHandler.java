@@ -1,4 +1,4 @@
-package net.insane96mcp.lib;
+package net.insane96mcp.vulcanite.lib;
 
 import net.insane96mcp.vulcanite.init.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
