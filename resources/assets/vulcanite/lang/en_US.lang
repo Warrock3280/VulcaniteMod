@@ -1,0 +1,14 @@
+item.vulcanite:vulcanite.name=Vulcanite
+item.vulcanite:vulcanite_pickaxe.name=Vulcanite Pickaxe
+item.vulcanite:vulcanite_axe.name=Vulcanite Axe
+item.vulcanite:vulcanite_shovel.name=Vulcanite Shovel
+item.vulcanite:vulcanite_hoe.name=Vulcanite Hoe
+item.vulcanite:vulcanite_sword.name=Vulcanite Sword
+
+item.vulcanite:vulcanite_helmet.name=Vulcanite Helmet
+item.vulcanite:vulcanite_chestplate.name=Vulcanite Chestplate
+item.vulcanite:vulcanite_leggings.name=Vulcanite Leggings
+item.vulcanite:vulcanite_boots.name=Vulcanite Boots
+
+tile.vulcanite:vulcanite_block.name=Vulcanite Block
+tile.vulcanite:vulcanite_ore.name=Vulcanite Ore

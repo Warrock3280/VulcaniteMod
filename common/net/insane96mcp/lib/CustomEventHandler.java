@@ -1,0 +1,46 @@
+package net.insane96mcp.lib;
+
+import net.insane96mcp.vulcanite.init.ModItems;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import scala.collection.generic.BitOperations.Int;
+
+public class CustomEventHandler {
+	
+	@SubscribeEvent
+	public static void LivingHurtEvent(LivingHurtEvent event) {
+		if (event.getEntityLiving() instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+			DamageSource source = event.getSource();
+			
+			if (source == DamageSource.IN_FIRE || source == DamageSource.HOT_FLOOR || source == DamageSource.ON_FIRE || source == DamageSource.LAVA) {
+				float amount = event.getAmount();
+				
+				ItemStack[] armorList = new ItemStack[] {new ItemStack(ModItems.vulcaniteHelmetItem, 1), new ItemStack(ModItems.vulcaniteChestplateItem, 1), new ItemStack(ModItems.vulcaniteLeggingsItem, 1), new ItemStack(ModItems.vulcaniteBootsItem, 1)};
+			    int gearCounter = 0;
+		        player.sendMessage(new TextComponentString("Gear counter " + Integer.toString(gearCounter)));
+			    Iterable<ItemStack> playerArmor = player.getArmorInventoryList();
+			    for (ItemStack armorPiece : playerArmor) {
+			    	for (ItemStack armorL : armorList) {
+				        player.sendMessage(new TextComponentString("Checking " + armorPiece + " " + armorL));
+						if (armorPiece == armorL) {
+							gearCounter++;
+					        player.sendMessage(new TextComponentString("ArmorPiece found"));
+							break;
+						}
+					}
+				}
+		        player.sendMessage(new TextComponentString("Gear counter " + Integer.toString(gearCounter)));
+			    if(gearCounter == 4) {
+			    	amount /= 4;
+			        event.setAmount(amount);
+			    }
+			    player.sendMessage(new TextComponentString("Damage amount " + Float.toString(amount)));
+			}
+		}
+	}
+}
