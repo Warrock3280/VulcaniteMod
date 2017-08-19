@@ -43,7 +43,7 @@ public class CustomEventHandler {
 					}
 			        player.sendMessage(new TextComponentString("Gear counter " + Integer.toString(gearCounter)));
 				    if(gearCounter == 4) {
-				    	amount /= 4;
+				    	amount /= 10;
 				        event.setAmount(amount);
 				    }
 				    player.sendMessage(new TextComponentString("Damage amount " + Float.toString(amount)));

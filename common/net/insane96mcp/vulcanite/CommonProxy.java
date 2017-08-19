@@ -12,12 +12,12 @@ public class CommonProxy {
 	public void PreInit(FMLPreInitializationEvent event) {
 		ModItems.Init();
 		ModBlocks.Init();
-		MinecraftForge.EVENT_BUS.register(CustomEventHandler.class);
 	}
 	
 	public void Init(FMLInitializationEvent event) {
 		ModItems.PostInit();
 		ModBlocks.PostInit();
+		MinecraftForge.EVENT_BUS.register(CustomEventHandler.class);
 	}
 	
 	public void PostInit(FMLPostInitializationEvent event) {
