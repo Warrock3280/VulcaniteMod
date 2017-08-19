@@ -28,7 +28,7 @@ public class ItemVulcaniteArmor extends ItemArmor{
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
-		tooltip.add(TextFormatting.GOLD + "Reduces damage from hot sources by " + TextFormatting.RED + "20%");
-		tooltip.add(TextFormatting.GOLD + "Fullset damage reduction: " + TextFormatting.RED + "80%");
+		tooltip.add(TextFormatting.GOLD + "Reduces damage from hot sources by " + TextFormatting.RED + "22.5%");
+		tooltip.add(TextFormatting.GOLD + "Fullset damage reduction: " + TextFormatting.RED + "90%");
 	}
 }

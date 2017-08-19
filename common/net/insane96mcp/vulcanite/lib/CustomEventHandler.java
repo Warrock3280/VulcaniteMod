@@ -39,7 +39,7 @@ public class CustomEventHandler {
 						}
 					}
 				    if(gearCounter >= 1) {
-				    	float reductionPerPiece = 20f;
+				    	float reductionPerPiece = 22.5f;
 				    	float percentageReduction = gearCounter * reductionPerPiece;
 				    	amount -= (amount / 100 * percentageReduction);
 				        event.setAmount(amount);
