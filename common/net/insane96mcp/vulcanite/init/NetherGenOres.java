@@ -18,7 +18,7 @@ public class NetherGenOres implements IWorldGenerator {
 	private final WorldGenMinable worldGenMinableNether;
 	
 	public NetherGenOres() {
-		worldGenMinableNether = new WorldGenMinable(ModBlocks.vulcaniteOre.getDefaultState(), 3, BlockMatcher.forBlock(Blocks.NETHERRACK));
+		worldGenMinableNether = new WorldGenMinable(ModBlocks.vulcaniteOre.getDefaultState(), 2, BlockMatcher.forBlock(Blocks.NETHERRACK));
 	}
 	
 	@Override

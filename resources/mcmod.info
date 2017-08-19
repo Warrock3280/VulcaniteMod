@@ -1,0 +1,16 @@
+[
+{
+  "modid": "vulcanite",
+  "name": "Vulcanite",
+  "description": "Adding a new ore to the nether. Tools made with this ore, the Vulcanite, have special properties",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Insane96MCP"],
+  "credits": "The Forge and Minecraft forum for help :P",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
