@@ -72,10 +72,10 @@ public class ModItems {
 		GameRegistry.addRecipe(new ItemStack(vulcaniteHoeItem), " vv", " s ", " s ", 'v', vulcaniteItem, 's', Items.STICK);
 		GameRegistry.addRecipe(new ItemStack(vulcaniteSwordItem), " v ", " v ", " s ", 'v', vulcaniteItem, 's', Items.STICK);
 
-		GameRegistry.addRecipe(new ItemStack(vulcaniteHelmetItem), "vvv", "v v", "   ", 'v', vulcaniteItem);
+		GameRegistry.addRecipe(new ItemStack(vulcaniteHelmetItem), "vvv", "v v", 'v', vulcaniteItem);
 		GameRegistry.addRecipe(new ItemStack(vulcaniteChestplateItem), "v v", "vvv", "vvv", 'v', vulcaniteItem);
 		GameRegistry.addRecipe(new ItemStack(vulcaniteLeggingsItem), "vvv", "v v", "v v", 'v', vulcaniteItem);
-		GameRegistry.addRecipe(new ItemStack(vulcaniteBootsItem), "v v", "v v", "   ", 'v', vulcaniteItem);
+		GameRegistry.addRecipe(new ItemStack(vulcaniteBootsItem), "v v", "v v", 'v', vulcaniteItem);
 	}
 	
 	@SideOnly(Side.CLIENT)

@@ -33,7 +33,7 @@ public class CustomEventHandler {
 				    Iterable<ItemStack> playerArmor = player.getArmorInventoryList();
 				    for (ItemStack armorPiece : playerArmor) {
 				    	for (ItemStack armorL : armorList) {
-					        player.sendMessage(new TextComponentString("Checking " + armorPiece + " " + armorL));
+					        player.sendMessage(new TextComponentString("Checking " + armorPiece.getItem() + " " + armorL.getItem()));
 					        if (ItemStack.areItemsEqualIgnoreDurability(armorPiece, armorL)) {
 								gearCounter++;
 						        player.sendMessage(new TextComponentString("ArmorPiece found"));
@@ -42,8 +42,10 @@ public class CustomEventHandler {
 						}
 					}
 			        player.sendMessage(new TextComponentString("Gear counter " + Integer.toString(gearCounter)));
-				    if(gearCounter == 4) {
-				    	amount /= 10;
+				    if(gearCounter >= 1) {
+				    	float reductionPerPiece = 20f;
+				    	float percentageReduction = gearCounter * reductionPerPiece;
+				    	amount -= (amount / 100 * percentageReduction);
 				        event.setAmount(amount);
 				    }
 				    player.sendMessage(new TextComponentString("Damage amount " + Float.toString(amount)));
