@@ -2,7 +2,7 @@
 {
   "modid": "vulcanite",
   "name": "Vulcanite",
-  "description": "Adding a new ore to the nether. Tools made with this ore, the Vulcanite, have special properties",
+  "description": "New ore into the nether. Tools and armor made with this ore, the Vulcanite, have special properties",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",

@@ -29,6 +29,7 @@ public class ModBlocks {
 		vulcaniteBlock.setRegistryName(location);
 		vulcaniteBlock.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		vulcaniteBlock.setHardness(10.0f);
+		vulcaniteBlock.setResistance(20f);
 		vulcaniteBlock.setHarvestLevel("pickaxe", 3);
 		GameRegistry.register(vulcaniteBlock);
 		GameRegistry.register(new ItemBlock(vulcaniteBlock), location);
@@ -38,6 +39,7 @@ public class ModBlocks {
 		vulcaniteOre.setRegistryName(location);
 		vulcaniteOre.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
 		vulcaniteOre.setHardness(6.0f);
+		vulcaniteOre.setResistance(10f);
 		vulcaniteOre.setHarvestLevel("pickaxe", 3);
 		GameRegistry.register(vulcaniteOre);
 		GameRegistry.register(new ItemBlock(vulcaniteOre), location);
