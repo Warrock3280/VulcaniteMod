@@ -27,7 +27,7 @@ public class NetherGenOres implements IWorldGenerator {
 		BlockPos chunkPos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
 
 		if (world.provider.getDimension() == -1) {
-			for (int i = 0; i < 32; i++) {
+			for (int i = 0; i < 40; i++) {
 				worldGenMinableNether.generate(world, random, chunkPos.add(random.nextInt(16), random.nextInt(32), random.nextInt(16)));
 			}
 		}
