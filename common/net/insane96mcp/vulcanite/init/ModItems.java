@@ -1,7 +1,13 @@
 package net.insane96mcp.vulcanite.init;
 
 import net.insane96mcp.vulcanite.Vulcanite;
-import net.insane96mcp.vulcanite.item.*;
+import net.insane96mcp.vulcanite.item.ItemVulcanite;
+import net.insane96mcp.vulcanite.item.ItemVulcaniteArmor;
+import net.insane96mcp.vulcanite.item.ItemVulcaniteAxe;
+import net.insane96mcp.vulcanite.item.ItemVulcaniteHoe;
+import net.insane96mcp.vulcanite.item.ItemVulcanitePickaxe;
+import net.insane96mcp.vulcanite.item.ItemVulcaniteShovel;
+import net.insane96mcp.vulcanite.item.ItemVulcaniteSword;
 import net.insane96mcp.vulcanite.lib.MaterialHandler;
 import net.insane96mcp.vulcanite.lib.Names;
 import net.minecraft.client.renderer.ItemModelMesher;

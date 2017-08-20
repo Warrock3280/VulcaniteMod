@@ -4,12 +4,10 @@ import java.util.List;
 
 import net.insane96mcp.vulcanite.Vulcanite;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.TextFormatting;
 
 public class ItemVulcaniteShovel extends ItemSpade{
 	public ItemVulcaniteShovel(String name, ToolMaterial material, CreativeTabs tab) {
