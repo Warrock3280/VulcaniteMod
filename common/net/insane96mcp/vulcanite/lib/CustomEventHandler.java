@@ -1,11 +1,19 @@
 package net.insane96mcp.vulcanite.lib;
 
+import javax.swing.text.html.HTML.Tag;
+
 import net.insane96mcp.vulcanite.init.ModItems;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
+import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import scala.collection.generic.BitOperations.Int;
 
@@ -45,6 +53,27 @@ public class CustomEventHandler {
 				        event.setAmount(amount);
 				    }
 				}
+			}
+		}
+	}
+	
+	
+	private static ItemStack[] fireTools = new ItemStack[] {
+		new ItemStack(ModItems.vulcaniteAxeItem),
+		new ItemStack(ModItems.vulcaniteHoeItem),
+		new ItemStack(ModItems.vulcanitePickaxeItem),
+		new ItemStack(ModItems.vulcaniteShovelItem),
+		new ItemStack(ModItems.vulcaniteSwordItem)
+	};
+	
+	@SubscribeEvent
+	public static void AttackEntityEvent(AttackEntityEvent event) {
+		for (ItemStack itemStack : fireTools) {
+			EntityPlayer player = event.getEntityPlayer();
+			ItemStack heldItem = player.getHeldItemMainhand();
+			if (ItemStack.areItemsEqualIgnoreDurability(heldItem, itemStack)) {
+				Entity target = event.getTarget();
+				target.setFire(3);
 			}
 		}
 	}
