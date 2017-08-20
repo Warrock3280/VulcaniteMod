@@ -3,11 +3,14 @@ package net.insane96mcp.vulcanite.lib;
 import net.insane96mcp.vulcanite.init.ModItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import scala.reflect.internal.Trees.New;
 
 public class CustomEventHandler {
 	
@@ -22,26 +25,36 @@ public class CustomEventHandler {
 				DamageSource.HOT_FLOOR, 
 				DamageSource.LAVA
 			};
+					
+			ItemStack[] armorList = new ItemStack[] {
+				new ItemStack(ModItems.vulcaniteHelmetItem), 
+				new ItemStack(ModItems.vulcaniteChestplateItem), 
+				new ItemStack(ModItems.vulcaniteLeggingsItem), 
+				new ItemStack(ModItems.vulcaniteBootsItem)
+			};
+			
+			float[] materialPerPiece = new float[] { 5, 8, 7, 4 };
 			
 			for (DamageSource damageSource : validSources) {
 				if (source == damageSource) {
 					float amount = event.getAmount();
 					
-					ItemStack[] armorList = new ItemStack[] {new ItemStack(ModItems.vulcaniteHelmetItem), new ItemStack(ModItems.vulcaniteChestplateItem), new ItemStack(ModItems.vulcaniteLeggingsItem), new ItemStack(ModItems.vulcaniteBootsItem)};
-				    int gearCounter = 0;
+				    int materialsUsed = 0;
 				    Iterable<ItemStack> playerArmor = player.getArmorInventoryList();
 				    for (ItemStack armorPiece : playerArmor) {
-				    	for (ItemStack armorL : armorList) {
-					        if (ItemStack.areItemsEqualIgnoreDurability(armorPiece, armorL)) {
-								gearCounter++;
+				    	for (int i = 0; i < armorList.length; i++) {
+					        if (ItemStack.areItemsEqualIgnoreDurability(armorPiece, armorList[i])) {
+								materialsUsed += materialPerPiece[i];
 								break;
 							}
 						}
 					}
-				    if(gearCounter >= 1) {
-				    	float reductionPerPiece = 22.5f;
-				    	float percentageReduction = gearCounter * reductionPerPiece;
-				    	amount -= (amount / 100 * percentageReduction);
+				    
+				    if(materialsUsed >= 1) {
+				    	float maxReduction = 0.9f;
+				    	float reductionPerMaterial = maxReduction / 24f;
+				    	float percentageReduction = reductionPerMaterial * materialsUsed;
+				    	amount = amount * (1f - percentageReduction);
 				        event.setAmount(amount);
 				    }
 				}
