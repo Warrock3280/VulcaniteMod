@@ -3,8 +3,11 @@ package net.insane96mcp.vulcanite.lib;
 import net.insane96mcp.vulcanite.init.ModItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagByte;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
@@ -105,6 +108,11 @@ public class CustomEventHandler {
 				return;
 			
 			entityLivingBase.setFire(3);
+			if (entityLivingBase instanceof EntityCreeper) {
+				NBTTagCompound ignited = new NBTTagCompound();
+				ignited.setByte("ignited", (byte)1);
+				entityLivingBase.readEntityFromNBT(ignited);
+			}
 			if (ItemStack.areItemsEqualIgnoreDurability(mainHand, flintAndVulcanite)) {
 				player.swingArm(EnumHand.MAIN_HAND);
 			}
