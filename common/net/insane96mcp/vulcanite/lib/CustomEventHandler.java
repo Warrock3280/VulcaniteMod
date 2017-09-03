@@ -1,14 +1,26 @@
 package net.insane96mcp.vulcanite.lib;
 
+import com.google.common.eventbus.Subscribe;
+
+import ibxm.Player;
 import net.insane96mcp.vulcanite.init.ModItems;
+import net.minecraft.client.audio.SoundRegistry;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.world.World;
+import net.minecraftforge.client.gui.ForgeGuiFactory.ForgeConfigGui.ModIDEntry;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import scala.reflect.internal.Trees.New;
 
@@ -80,6 +92,39 @@ public class CustomEventHandler {
 				Entity target = event.getTarget();
 				target.setFire(3);
 			}
+		}
+	}
+	
+	private static ItemStack flintAndVulcanite = new ItemStack(ModItems.flintAndVulcaniteItem);
+	
+	@SubscribeEvent
+	public static void PlayerEntityInteract(PlayerInteractEvent.EntityInteract event) {
+		EntityPlayer player = event.getEntityPlayer();
+		ItemStack mainHand = player.getHeldItemMainhand();
+		ItemStack offHand = player.getHeldItemOffhand();
+		if (ItemStack.areItemsEqualIgnoreDurability(mainHand, flintAndVulcanite) || ItemStack.areItemsEqualIgnoreDurability(offHand, flintAndVulcanite)) {
+			Entity target = event.getTarget();
+			EntityLivingBase entityLivingBase;
+			if (!(target instanceof EntityLivingBase))
+				return;
+			
+			entityLivingBase = (EntityLivingBase)target;
+			
+			if (entityLivingBase.isImmuneToFire())
+				return;
+			
+			entityLivingBase.setFire(3);
+			if (ItemStack.areItemsEqualIgnoreDurability(mainHand, flintAndVulcanite)) {
+				player.swingArm(EnumHand.MAIN_HAND);
+			}
+			else { 
+				player.swingArm(EnumHand.OFF_HAND);
+			}
+			ResourceLocation sound = new ResourceLocation("minecraft","item.flintandsteel.use");
+			SoundEvent soundEvent = new SoundEvent(sound);
+			
+			event.getWorld().playSound(player, entityLivingBase.getPosition(), soundEvent, SoundCategory.PLAYERS, 1.0f, event.getWorld().rand.nextFloat() * 0.4F + 0.8F);
+				
 		}
 	}
 }

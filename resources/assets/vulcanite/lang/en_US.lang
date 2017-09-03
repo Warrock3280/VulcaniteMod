@@ -5,6 +5,8 @@ item.vulcanite:vulcanite_shovel.name=Vulcanite Shovel
 item.vulcanite:vulcanite_hoe.name=Vulcanite Hoe
 item.vulcanite:vulcanite_sword.name=Vulcanite Sword
 
+item.vulcanite:flint_and_vulcanite.name=Flint and Vulcanite
+
 item.vulcanite:vulcanite_helmet.name=Vulcanite Helmet
 item.vulcanite:vulcanite_chestplate.name=Vulcanite Chestplate
 item.vulcanite:vulcanite_leggings.name=Vulcanite Leggings

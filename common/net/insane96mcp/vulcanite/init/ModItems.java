@@ -1,6 +1,7 @@
 package net.insane96mcp.vulcanite.init;
 
 import net.insane96mcp.vulcanite.Vulcanite;
+import net.insane96mcp.vulcanite.item.ItemFlintAndVulcanite;
 import net.insane96mcp.vulcanite.item.ItemVulcanite;
 import net.insane96mcp.vulcanite.item.ItemVulcaniteArmor;
 import net.insane96mcp.vulcanite.item.ItemVulcaniteAxe;
@@ -30,6 +31,8 @@ public class ModItems {
 	public static ItemVulcaniteAxe vulcaniteAxeItem;
 	public static ItemVulcaniteHoe vulcaniteHoeItem;
 	public static ItemVulcaniteSword vulcaniteSwordItem;
+	
+	public static ItemFlintAndVulcanite flintAndVulcaniteItem;
 
 	public static ItemVulcaniteArmor vulcaniteHelmetItem;
 	public static ItemVulcaniteArmor vulcaniteChestplateItem;
@@ -54,6 +57,9 @@ public class ModItems {
 		
 		vulcaniteSwordItem = new ItemVulcaniteSword(Names.VULCANITE_SWORD, MaterialHandler.Vulcanite, CreativeTabs.COMBAT);
 		GameRegistry.register(vulcaniteSwordItem);
+		
+		flintAndVulcaniteItem = new ItemFlintAndVulcanite(Names.FLINT_AND_VULCANITE, MaterialHandler.Vulcanite, CreativeTabs.TOOLS);
+		GameRegistry.register(flintAndVulcaniteItem);
 
 		vulcaniteHelmetItem = new ItemVulcaniteArmor(Names.VULCANITE_HELMET, MaterialHandler.vulcaniteArmorMaterial, 0, EntityEquipmentSlot.HEAD);
 		GameRegistry.register(vulcaniteHelmetItem);
@@ -77,6 +83,8 @@ public class ModItems {
 		GameRegistry.addRecipe(new ItemStack(vulcaniteAxeItem), " vv", " sv", " s ", 'v', vulcaniteItem, 's', Items.STICK);
 		GameRegistry.addRecipe(new ItemStack(vulcaniteHoeItem), " vv", " s ", " s ", 'v', vulcaniteItem, 's', Items.STICK);
 		GameRegistry.addRecipe(new ItemStack(vulcaniteSwordItem), " v ", " v ", " s ", 'v', vulcaniteItem, 's', Items.STICK);
+		
+		GameRegistry.addShapelessRecipe(new ItemStack(flintAndVulcaniteItem), vulcaniteItem, Items.FLINT);
 
 		GameRegistry.addRecipe(new ItemStack(vulcaniteHelmetItem), "vvv", "v v", 'v', vulcaniteItem);
 		GameRegistry.addRecipe(new ItemStack(vulcaniteChestplateItem), "v v", "vvv", "vvv", 'v', vulcaniteItem);
@@ -109,6 +117,10 @@ public class ModItems {
 		modelResourceLocation = new ModelResourceLocation(Vulcanite.RESOURCE_PREFIX + Names.VULCANITE_SWORD);
 		ModelLoader.registerItemVariants(vulcaniteSwordItem, modelResourceLocation);
 		mesher.register(vulcaniteSwordItem, 0, modelResourceLocation);
+		
+		modelResourceLocation = new ModelResourceLocation(Vulcanite.RESOURCE_PREFIX + Names.FLINT_AND_VULCANITE);
+		ModelLoader.registerItemVariants(flintAndVulcaniteItem, modelResourceLocation);
+		mesher.register(flintAndVulcaniteItem, 0, modelResourceLocation);
 
 		
 		modelResourceLocation = new ModelResourceLocation(Vulcanite.RESOURCE_PREFIX + Names.VULCANITE_HELMET);
