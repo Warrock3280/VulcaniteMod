@@ -8,6 +8,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagByte;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagFloat;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
@@ -22,49 +23,52 @@ public class CustomEventHandler {
 	
 	@SubscribeEvent
 	public static void LivingHurtEvent(LivingHurtEvent event) {
-		if (event.getEntityLiving() instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
-			DamageSource source = event.getSource();
-			DamageSource[] validSources = new DamageSource[] {
-				DamageSource.IN_FIRE, 
-				DamageSource.ON_FIRE, 
-				DamageSource.HOT_FLOOR, 
-				DamageSource.LAVA
-			};
-					
-			ItemStack[] armorList = new ItemStack[] {
-				new ItemStack(ModItems.vulcaniteHelmetItem), 
-				new ItemStack(ModItems.vulcaniteChestplateItem), 
-				new ItemStack(ModItems.vulcaniteLeggingsItem), 
-				new ItemStack(ModItems.vulcaniteBootsItem)
-			};
+		if (!(event.getEntityLiving() instanceof EntityPlayer))
+			return;
+		
+		EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+		DamageSource source = event.getSource();
+		DamageSource[] validSources = new DamageSource[] {
+			DamageSource.IN_FIRE, 
+			DamageSource.ON_FIRE, 
+			DamageSource.HOT_FLOOR, 
+			DamageSource.LAVA
+		};
+				
+		ItemStack[] armorList = new ItemStack[] {
+			new ItemStack(ModItems.vulcaniteHelmetItem), 
+			new ItemStack(ModItems.vulcaniteChestplateItem), 
+			new ItemStack(ModItems.vulcaniteLeggingsItem), 
+			new ItemStack(ModItems.vulcaniteBootsItem)
+		};
+		
+		float[] materialPerPiece = new float[] { 5, 8, 7, 4 };
+		
+		for (DamageSource damageSource : validSources) {
+			if (source != damageSource) 
+				continue;
 			
-			float[] materialPerPiece = new float[] { 5, 8, 7, 4 };
+			float amount = event.getAmount();
 			
-			for (DamageSource damageSource : validSources) {
-				if (source == damageSource) {
-					float amount = event.getAmount();
-					
-				    int materialsUsed = 0;
-				    Iterable<ItemStack> playerArmor = player.getArmorInventoryList();
-				    for (ItemStack armorPiece : playerArmor) {
-				    	for (int i = 0; i < armorList.length; i++) {
-					        if (ItemStack.areItemsEqualIgnoreDurability(armorPiece, armorList[i])) {
-								materialsUsed += materialPerPiece[i];
-								break;
-							}
-						}
+		    int materialsUsed = 0;
+		    Iterable<ItemStack> playerArmor = player.getArmorInventoryList();
+		    for (ItemStack armorPiece : playerArmor) {
+		    	for (int i = 0; i < armorList.length; i++) {
+			        if (ItemStack.areItemsEqualIgnoreDurability(armorPiece, armorList[i])) {
+						materialsUsed += materialPerPiece[i];
+						break;
 					}
-				    
-				    if(materialsUsed >= 1) {
-				    	float maxReduction = 0.9f;
-				    	float reductionPerMaterial = maxReduction / 24f;
-				    	float percentageReduction = reductionPerMaterial * materialsUsed;
-				    	amount = amount * (1f - percentageReduction);
-				        event.setAmount(amount);
-				    }
 				}
 			}
+		    
+		    if (materialsUsed >= 1) {
+		    	float maxReduction = 0.9f;
+		    	float reductionPerMaterial = maxReduction / 24f;
+		    	float percentageReduction = reductionPerMaterial * materialsUsed;
+		    	amount = amount * (1f - percentageReduction);
+		        event.setAmount(amount);
+		    }
+			
 		}
 	}
 	
@@ -77,15 +81,32 @@ public class CustomEventHandler {
 		new ItemStack(ModItems.vulcaniteSwordItem)
 	};
 	
+	private static final float bonusDamage = 0.2f;
+	
 	@SubscribeEvent
 	public static void AttackEntityEvent(AttackEntityEvent event) {
 		for (ItemStack itemStack : fireTools) {
 			EntityPlayer player = event.getEntityPlayer();
 			ItemStack heldItem = player.getHeldItemMainhand();
-			if (ItemStack.areItemsEqualIgnoreDurability(heldItem, itemStack)) {
-				Entity target = event.getTarget();
-				target.setFire(3);
-			}
+			if (!ItemStack.areItemsEqualIgnoreDurability(heldItem, itemStack))
+				continue;
+			
+			Entity target = event.getTarget();
+			if (!(target instanceof EntityLivingBase))
+				return;
+			
+			EntityLivingBase entity = (EntityLivingBase)target;
+			if (!entity.isImmuneToFire())
+				return;
+			
+			float currentHealth = entity.getHealth();
+			if (!entity.getEntityData().hasKey("Health"))
+				return;
+			
+			float entityHealth = ((NBTTagFloat) entity.getEntityData().getTag("Health")).getInt();;
+			float damageDealth = entityHealth - currentHealth;
+			float bonusDamageDealth = damageDealth * bonusDamage;
+			entity.attackEntityFrom(DamageSource.causePlayerDamage(player), bonusDamageDealth);
 		}
 	}
 	
@@ -126,4 +147,6 @@ public class CustomEventHandler {
 				
 		}
 	}
+	
+	
 }

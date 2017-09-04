@@ -23,6 +23,7 @@ public class ItemVulcaniteShovel extends ItemSpade{
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
-		tooltip.add(TextFormatting.GOLD + "Sets attacked mobs on fire for " + TextFormatting.RED + "3 seconds");
+		tooltip.add(TextFormatting.GOLD + "Deals " + TextFormatting.RED + "20%" + TextFormatting.GOLD + " more damage to");
+		tooltip.add(TextFormatting.GOLD + "fire immune mobs");
 	}
 }
