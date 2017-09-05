@@ -140,10 +140,8 @@ public class CustomEventHandler {
 			else { 
 				player.swingArm(EnumHand.OFF_HAND);
 			}
-			ResourceLocation sound = new ResourceLocation("minecraft","item.flintandsteel.use");
-			SoundEvent soundEvent = new SoundEvent(sound);
 			
-			event.getWorld().playSound(player, entityLivingBase.getPosition(), soundEvent, SoundCategory.PLAYERS, 1.0f, event.getWorld().rand.nextFloat() * 0.4F + 0.8F);
+			event.getWorld().playSound(player, entityLivingBase.getPosition(), SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS, 1.0f, event.getWorld().rand.nextFloat() * 0.4F + 0.8F);
 				
 		}
 	}
