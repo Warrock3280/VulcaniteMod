@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "VV",
+    "SV",
+    "S "
+  ],
+  "key": {
+    "V": {
+      "item": "vulcanite:vulcanite"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "vulcanite:vulcanite_axe"
+  }
+}

@@ -17,8 +17,6 @@ public class ClientProxy extends CommonProxy{
 	@Override
 	public void Init(FMLInitializationEvent event) {
 		super.Init(event);
-		ModItems.InitClient(Minecraft.getMinecraft().getRenderItem().getItemModelMesher());
-		ModBlocks.InitClient(Minecraft.getMinecraft().getRenderItem().getItemModelMesher());
 	}
 
 	@Override
