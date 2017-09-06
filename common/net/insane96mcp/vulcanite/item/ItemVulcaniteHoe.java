@@ -3,6 +3,8 @@ package net.insane96mcp.vulcanite.item;
 import java.util.List;
 
 import net.insane96mcp.vulcanite.Vulcanite;
+import net.insane96mcp.vulcanite.init.ModItems;
+import net.insane96mcp.vulcanite.lib.CustomEventHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemHoe;
@@ -23,7 +25,8 @@ public class ItemVulcaniteHoe extends ItemHoe{
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
-		tooltip.add(TextFormatting.GOLD + "Deals " + TextFormatting.RED + "20%" + TextFormatting.GOLD + " more damage to");
-		tooltip.add(TextFormatting.GOLD + "fire immune mobs");
+		for (int i = 0; i < ModItems.itemsLore.length; i++) {
+			tooltip.add(ModItems.itemsLore[i]);
+		}
 	}
 }

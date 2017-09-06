@@ -3,6 +3,7 @@ package net.insane96mcp.vulcanite.item;
 import java.util.List;
 
 import net.insane96mcp.vulcanite.Vulcanite;
+import net.insane96mcp.vulcanite.init.ModItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -28,7 +29,8 @@ public class ItemVulcaniteArmor extends ItemArmor{
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
-		tooltip.add(TextFormatting.GOLD + "Reduces damage from hot sources");
-		tooltip.add(TextFormatting.GOLD + "Full Armor Set damage reduction: " + TextFormatting.RED + "90%");
+		for (int i = 0; i < ModItems.armorLore.length; i++) {
+			tooltip.add(ModItems.armorLore[i]);
+		}
 	}
 }
