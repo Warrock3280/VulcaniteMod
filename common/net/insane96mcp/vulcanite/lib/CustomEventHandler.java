@@ -1,26 +1,22 @@
 package net.insane96mcp.vulcanite.lib;
 
 import net.insane96mcp.vulcanite.Vulcanite;
-import net.insane96mcp.vulcanite.init.ModBlocks;
 import net.insane96mcp.vulcanite.init.ModItems;
-import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Enchantments;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagFloat;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -28,8 +24,15 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber(modid = Vulcanite.MOD_ID)
 public class CustomEventHandler {
 	
+
+	
 	@SubscribeEvent
 	public static void LivingHurtEvent(LivingHurtEvent event) {
+		OnPlayerHurt(event);
+		OnPlayerDamageEntity(event);
+	}
+	
+	public static void OnPlayerHurt(LivingHurtEvent event) {
 		if (!(event.getEntityLiving() instanceof EntityPlayer))
 			return;
 		
@@ -41,7 +44,7 @@ public class CustomEventHandler {
 			DamageSource.HOT_FLOOR, 
 			DamageSource.LAVA
 		};
-				
+		
 		ItemStack[] armorList = new ItemStack[] {
 			new ItemStack(ModItems.vulcaniteHelmetItem), 
 			new ItemStack(ModItems.vulcaniteChestplateItem), 
@@ -75,10 +78,8 @@ public class CustomEventHandler {
 		    	amount = amount * (1f - percentageReduction);
 		        event.setAmount(amount);
 		    }
-			
 		}
 	}
-	
 	
 	private static ItemStack[] fireTools = new ItemStack[] {
 		new ItemStack(ModItems.vulcaniteAxeItem),
@@ -88,17 +89,33 @@ public class CustomEventHandler {
 		new ItemStack(ModItems.vulcaniteSwordItem)
 	};
 	
-	private static final float bonusDamage = 0.2f;
+	private static final float bonusDamagePerLevel = 0.15f;
 	
-	@SubscribeEvent
-	public static void AttackEntityEvent(AttackEntityEvent event) {
+	public static void OnPlayerDamageEntity(LivingHurtEvent event) {
+		if (event.getSource().damageType != "player")
+			return;
+		
 		for (ItemStack itemStack : fireTools) {
-			EntityPlayer player = event.getEntityPlayer();
+			EntityPlayerMP player = (EntityPlayerMP) event.getSource().getTrueSource();
 			ItemStack heldItem = player.getHeldItemMainhand();
 			if (!ItemStack.areItemsEqualIgnoreDurability(heldItem, itemStack))
 				continue;
 			
-			Entity target = event.getTarget();
+			NBTTagList enchantments = heldItem.getEnchantmentTagList();
+			
+			if (enchantments == null)
+				return;
+			
+			int fireAspectLevel = 0;
+			for (int i = 0; i < enchantments.tagCount(); i++) {
+				if (enchantments.getCompoundTagAt(i).getShort("id") == Enchantment.getEnchantmentID(Enchantments.FIRE_ASPECT))
+					fireAspectLevel = enchantments.getCompoundTagAt(i).getShort("lvl");
+			}
+			
+			if (fireAspectLevel == 0)
+				return;
+			
+			Entity target = event.getEntity();
 			if (!(target instanceof EntityLivingBase))
 				return;
 			
@@ -106,14 +123,9 @@ public class CustomEventHandler {
 			if (!entity.isImmuneToFire())
 				return;
 			
-			float currentHealth = entity.getHealth();
-			if (!entity.getEntityData().hasKey("Health"))
-				return;
-			
-			float entityHealth = ((NBTTagFloat) entity.getEntityData().getTag("Health")).getInt();;
-			float damageDealth = entityHealth - currentHealth;
-			float bonusDamageDealth = damageDealth * bonusDamage;
-			entity.attackEntityFrom(DamageSource.causePlayerDamage(player), bonusDamageDealth);
+			float damageDealth = event.getAmount();
+			float bonusDamageDealth = damageDealth * (bonusDamagePerLevel * fireAspectLevel);
+			entity.attackEntityFrom(DamageSource.causePlayerDamage(player), bonusDamageDealth + damageDealth);
 		}
 	}
 	

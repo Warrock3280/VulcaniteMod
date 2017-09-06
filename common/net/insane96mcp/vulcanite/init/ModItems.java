@@ -2,7 +2,6 @@ package net.insane96mcp.vulcanite.init;
 
 import java.util.ArrayList;
 
-import net.insane96mcp.vulcanite.Vulcanite;
 import net.insane96mcp.vulcanite.item.ItemFlintAndVulcanite;
 import net.insane96mcp.vulcanite.item.ItemVulcanite;
 import net.insane96mcp.vulcanite.item.ItemVulcaniteArmor;
@@ -13,18 +12,25 @@ import net.insane96mcp.vulcanite.item.ItemVulcaniteShovel;
 import net.insane96mcp.vulcanite.item.ItemVulcaniteSword;
 import net.insane96mcp.vulcanite.lib.MaterialHandler;
 import net.insane96mcp.vulcanite.lib.Names;
-import net.minecraft.client.renderer.ItemModelMesher;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.client.model.ModelLoader;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ModItems {
+	
+	public static String[] itemsLore = new String[] {
+		TextFormatting.GOLD + "Deals " + TextFormatting.RED + "15%" + TextFormatting.GOLD + " more damage per level",
+		TextFormatting.GOLD + "of Fire Aspect to fire immune mobs"
+	};
+	
+	public static String[] armorLore = new String[] {
+		TextFormatting.GOLD + "Reduces damage from hot sources",
+		TextFormatting.GOLD + "Full Armor Set damage reduction: " + TextFormatting.RED + "90%"
+	};
+	
 	
 	public static ItemVulcanite vulcaniteItem;
 	

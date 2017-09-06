@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import net.insane96mcp.vulcanite.Vulcanite;
+import net.insane96mcp.vulcanite.init.ModItems;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -27,7 +28,8 @@ public class ItemVulcanitePickaxe extends ItemPickaxe {
 	
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-		tooltip.add(TextFormatting.GOLD + "Deals " + TextFormatting.RED + "20%" + TextFormatting.GOLD + " more damage to");
-		tooltip.add(TextFormatting.GOLD + "fire immune mobs");
+		for (int i = 0; i < ModItems.armorLore.length; i++) {
+			tooltip.add(ModItems.armorLore[i]);
+		}
 	}
 }
