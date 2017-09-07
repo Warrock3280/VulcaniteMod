@@ -40,6 +40,7 @@ public class ModBlocks {
 		vulcaniteOre.setHarvestLevel("pickaxe", 3);
 		GameRegistry.register(vulcaniteOre);
 		GameRegistry.register(new ItemBlock(vulcaniteOre), location);
+		
 		GameRegistry.registerWorldGenerator(new NetherGenOres(), 0);
 	}
 	

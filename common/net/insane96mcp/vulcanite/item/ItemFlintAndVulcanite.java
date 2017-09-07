@@ -3,6 +3,7 @@ package net.insane96mcp.vulcanite.item;
 import java.util.List;
 
 import net.insane96mcp.vulcanite.Vulcanite;
+import net.insane96mcp.vulcanite.lib.MaterialHandler;
 import net.minecraft.block.BlockTNT;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityTNTPrimed;
@@ -21,7 +22,7 @@ import net.minecraft.world.World;
 
 public class ItemFlintAndVulcanite extends ItemFlintAndSteel{
 	public ItemFlintAndVulcanite(String name, ToolMaterial material, CreativeTabs tab) {
-		this.setMaxDamage(222);
+		this.setMaxDamage(MaterialHandler.flintVulcaniteMaxUses);
 		this.setCreativeTab(tab);
 		setRegistryName(name);
 	}
@@ -33,7 +34,7 @@ public class ItemFlintAndVulcanite extends ItemFlintAndSteel{
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
-		tooltip.add(TextFormatting.GOLD + "Rightclick on mob to set it on fire for " + TextFormatting.RED + "3 seconds");
+		tooltip.add(TextFormatting.GOLD + "Rightclick on mob to set it on fire for " + TextFormatting.RED + MaterialHandler.flintVulcaniteSecondsOnFire + " seconds");
 	}
 
 	@Override
