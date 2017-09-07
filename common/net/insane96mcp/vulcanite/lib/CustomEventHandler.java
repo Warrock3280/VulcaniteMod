@@ -72,7 +72,7 @@ public class CustomEventHandler {
 			}
 		    
 		    if (materialsUsed >= 1) {
-		    	float maxReduction = 0.9f;
+		    	float maxReduction = MaterialHandler.hotSourcedamageReduction / 100f;
 		    	float reductionPerMaterial = maxReduction / 24f;
 		    	float percentageReduction = reductionPerMaterial * materialsUsed;
 		    	amount = amount * (1f - percentageReduction);
@@ -89,7 +89,7 @@ public class CustomEventHandler {
 		new ItemStack(ModItems.vulcaniteSwordItem)
 	};
 	
-	private static final float bonusDamagePerLevel = 0.15f;
+	private static final float bonusDamagePerLevel = MaterialHandler.bonusDamagePerFALevel / 100f;
 	
 	public static void OnPlayerDamageEntity(LivingHurtEvent event) {
 		if (event.getSource().damageType != "player")
@@ -125,7 +125,7 @@ public class CustomEventHandler {
 			
 			float damageDealth = event.getAmount();
 			float bonusDamageDealth = damageDealth * (bonusDamagePerLevel * fireAspectLevel);
-			entity.attackEntityFrom(DamageSource.causePlayerDamage(player), bonusDamageDealth + damageDealth);
+			event.setAmount(bonusDamageDealth + damageDealth);
 		}
 	}
 	
@@ -147,7 +147,7 @@ public class CustomEventHandler {
 			if (entityLivingBase.isImmuneToFire())
 				return;
 			
-			entityLivingBase.setFire(3);
+			entityLivingBase.setFire(MaterialHandler.flintVulcaniteSecondsOnFire);
 			if (entityLivingBase instanceof EntityCreeper) {
 				NBTTagCompound ignited = new NBTTagCompound();
 				ignited.setByte("ignited", (byte)1);

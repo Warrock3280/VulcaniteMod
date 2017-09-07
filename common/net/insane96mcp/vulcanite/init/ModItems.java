@@ -22,13 +22,13 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class ModItems {
 	
 	public static String[] itemsLore = new String[] {
-		TextFormatting.GOLD + "Deals " + TextFormatting.RED + "15%" + TextFormatting.GOLD + " more damage per level",
+		TextFormatting.GOLD + "Deals " + TextFormatting.RED + MaterialHandler.bonusDamagePerFALevel + "%" + TextFormatting.GOLD + " more damage per level",
 		TextFormatting.GOLD + "of Fire Aspect to fire immune mobs"
 	};
 	
 	public static String[] armorLore = new String[] {
 		TextFormatting.GOLD + "Reduces damage from hot sources",
-		TextFormatting.GOLD + "Full Armor Set damage reduction: " + TextFormatting.RED + "90%"
+		TextFormatting.GOLD + "Full Armor Set damage reduction: " + TextFormatting.RED + MaterialHandler.hotSourcedamageReduction + "%"
 	};
 	
 	

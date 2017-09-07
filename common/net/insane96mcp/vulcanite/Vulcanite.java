@@ -2,6 +2,7 @@ package net.insane96mcp.vulcanite;
 
 import java.util.Random;
 
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -15,8 +16,10 @@ public class Vulcanite {
 	
 	public static final String MOD_ID = "vulcanite";
 	public static final String MOD_NAME = "Vulcanite";
-	public static final String VERSION = "1.1.2";
+	public static final String VERSION = "1.2.0";
 	public static final String RESOURCE_PREFIX = MOD_ID.toLowerCase() + ":";
+	
+	public static Configuration config;
 
 	public static Random random = new Random();
 	
