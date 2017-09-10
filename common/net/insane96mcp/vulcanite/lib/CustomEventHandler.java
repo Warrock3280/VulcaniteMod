@@ -68,7 +68,7 @@ public class CustomEventHandler {
 			}
 		    
 		    if (materialsUsed >= 1) {
-		    	float maxReduction = MaterialHandler.hotSourcedamageReduction;
+		    	float maxReduction = MaterialHandler.hotSourcedamageReduction / 100f;
 		    	float reductionPerMaterial = maxReduction / 24f;
 		    	float percentageReduction = reductionPerMaterial * materialsUsed;
 		    	amount = amount * (1f - percentageReduction);
