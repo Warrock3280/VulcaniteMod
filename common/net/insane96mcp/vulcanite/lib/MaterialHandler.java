@@ -1,9 +1,6 @@
 package net.insane96mcp.vulcanite.lib;
 
-import java.awt.datatransfer.FlavorTable;
-
 import net.insane96mcp.vulcanite.Config;
-import net.insane96mcp.vulcanite.Vulcanite;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
