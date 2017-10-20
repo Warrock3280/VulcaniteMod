@@ -1,0 +1,16 @@
+item.vulcanite:vulcanite.name=Vulcanite
+item.vulcanite:vulcanite_pickaxe.name=Picconi di Vulcanite
+item.vulcanite:vulcanite_axe.name=Ascia di Vulcanite
+item.vulcanite:vulcanite_shovel.name=Pala di Vulcanite
+item.vulcanite:vulcanite_hoe.name=Zappa di Vulcanite
+item.vulcanite:vulcanite_sword.name=Spada di Vulcanite
+
+item.vulcanite:flint_and_vulcanite.name=Acciarino in Vulcanite
+
+item.vulcanite:vulcanite_helmet.name=Elmetto di Vulcanite
+item.vulcanite:vulcanite_chestplate.name=Corazza di Vulcanite
+item.vulcanite:vulcanite_leggings.name=Pantaloni di Vulcanite
+item.vulcanite:vulcanite_boots.name=Stivali di Vulcanite
+
+tile.vulcanite:vulcanite_block.name=Blocco di Vulcanite
+tile.vulcanite:vulcanite_ore.name=Vulcanite Grezza
