@@ -1,0 +1,28 @@
+item.itemNet.name=Red de Pesca 
+item.itemFishmeal.name=Carnada 
+item.itemParchment.name=Parchment 
+tile.netDry.name=Dry fishing net 
+tile.netWet.name=Wet fishing 
+net
+
+achievement.fishingNet=Fisherman!
+
+achievement.fishingNet.desc=Construye tu primera Red de Pesca!
+
+achievement.magic=Magia del mar!
+achievement.magic.desc=Pesca un libro encantado de los abismos
+
+achievement.retiarius=Retiarius!
+
+achievement.retiarius.desc=Arroja tu red de pesca a alguien!
+
+subtitles.net.snatch=Fishingnet snatched
+
+subtitles.net.swish=Entity entangled
+
+subtitles.net.splash=Fish enmeshed
+
+subtitles.net.throw=Fishingnet 
+flies
+subtitles.net.bait=Adding bait
+
