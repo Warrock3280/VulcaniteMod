@@ -15,8 +15,14 @@ item.vulcanite:vulcanite_boots.name=Stivali di Vulcanite
 tile.vulcanite:vulcanite_block.name=Blocco di Vulcanite
 tile.vulcanite:vulcanite_ore.name=Vulcanite Grezza
 
-tooltip.general.shift_for_more=Premi MAIUSC per più informazioni
+tooltip.general.shift_for_more=§7Premi MAIUSC per più informazioni
 
-tooltip.flint_and_vulcanite.base_info.set_on_fire=Clicca col Tasto Destro su un mob per dargli fuoco
-tooltip.flint_and_vulcanite.advanced_info.set_on_fire=Clicca col Tasto Destro su un mob per dargli fuoco per §c%d secondi
-tooltip.flint_and_vulcanite.advanced_info.damage_on_use=Quando usato su di un mob, l'Acciarino in Vulcanite sarà danneggiato di §c%d
+tooltip.weapon.base_info.more_damage=§6Fa più danno ai mob immuni al fuoco quando Aspetto di Fuoco è presente
+tooltip.weapon.adv_info.more_damage=§6Fa il §c%f%%§6 più danno per livello di Aspetto di Fuoco ai mob immuni al fuoco
+
+tooltip.armor.base_info.damage_reduction=§6Riduce il danno dalle sorgenti calde
+tooltip.armor.adv_info.damage_reduction=§6Riduce il danno dalle sorgenti calde. L'armatura completa riduce il danno del §c%f%%§6
+
+tooltip.flint_and_vulcanite.base_info.set_on_fire=§6Clicca col Tasto Destro su un mob per dargli fuoco
+tooltip.flint_and_vulcanite.adv_info.set_on_fire=§6Clicca col Tasto Destro su un mob per dargli fuoco per §c%d§6 secondi
+tooltip.flint_and_vulcanite.adv_info.damage_on_use=§6Quando usato su di un mob, l'Acciarino in Vulcanite sarà danneggiato di §c%d

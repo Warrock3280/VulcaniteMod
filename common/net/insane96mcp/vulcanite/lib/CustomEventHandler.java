@@ -27,6 +27,13 @@ public class CustomEventHandler {
 		OnPlayerDamageEntity(event);
 	}
 	
+	static ItemStack[] armorList = new ItemStack[] {
+		new ItemStack(ModItems.vulcaniteHelmetItem), 
+		new ItemStack(ModItems.vulcaniteChestplateItem), 
+		new ItemStack(ModItems.vulcaniteLeggingsItem), 
+		new ItemStack(ModItems.vulcaniteBootsItem)
+	};
+	
 	public static void OnPlayerHurt(LivingHurtEvent event) {
 		if (!(event.getEntityLiving() instanceof EntityPlayer))
 			return;
@@ -38,13 +45,6 @@ public class CustomEventHandler {
 			DamageSource.ON_FIRE, 
 			DamageSource.HOT_FLOOR, 
 			DamageSource.LAVA
-		};
-		
-		ItemStack[] armorList = new ItemStack[] {
-			new ItemStack(ModItems.vulcaniteHelmetItem), 
-			new ItemStack(ModItems.vulcaniteChestplateItem), 
-			new ItemStack(ModItems.vulcaniteLeggingsItem), 
-			new ItemStack(ModItems.vulcaniteBootsItem)
 		};
 		
 		float[] materialPerPiece = new float[] { 5, 8, 7, 4 };
@@ -76,51 +76,43 @@ public class CustomEventHandler {
 		}
 	}
 	
-	private static ItemStack[] fireTools = new ItemStack[] {
-		new ItemStack(ModItems.vulcaniteAxeItem),
-		new ItemStack(ModItems.vulcaniteHoeItem),
-		new ItemStack(ModItems.vulcanitePickaxeItem),
-		new ItemStack(ModItems.vulcaniteShovelItem),
-		new ItemStack(ModItems.vulcaniteSwordItem)
-	};
+	private static ItemStack vulcaniteSword = new ItemStack(ModItems.vulcaniteSwordItem);
 	
 	public static void OnPlayerDamageEntity(LivingHurtEvent event) {
 		if (event.getSource().damageType != "player")
 			return;
 		
-		for (ItemStack itemStack : fireTools) {
-			EntityPlayerMP player = (EntityPlayerMP) event.getSource().getEntity();
-			ItemStack heldItem = player.getHeldItemMainhand();
-			if (!ItemStack.areItemsEqualIgnoreDurability(heldItem, itemStack))
-				continue;
-			
-			NBTTagList enchantments = heldItem.getEnchantmentTagList();
-			
-			if (enchantments == null)
-				return;
-			
-			int fireAspectLevel = 0;
-			for (int i = 0; i < enchantments.tagCount(); i++) {
-				if (enchantments.getCompoundTagAt(i).getShort("id") == Enchantment.getEnchantmentID(Enchantments.FIRE_ASPECT))
-					fireAspectLevel = enchantments.getCompoundTagAt(i).getShort("lvl");
-			}
-			
-			if (fireAspectLevel == 0)
-				return;
-			
-			Entity target = event.getEntity();
-			if (!(target instanceof EntityLivingBase))
-				return;
-			
-			EntityLivingBase entity = (EntityLivingBase)target;
-			if (!entity.isImmuneToFire())
-				return;
-			
-			float damageDealth = event.getAmount();
-			float bonusDamageDealth = damageDealth * ((Stats.Tools.bonusDamagePerFALevel / 100f) * fireAspectLevel);
-			
-			event.setAmount(damageDealth + bonusDamageDealth);
+		EntityPlayerMP player = (EntityPlayerMP) event.getSource().getEntity();
+		ItemStack heldItem = player.getHeldItemMainhand();
+		if (!ItemStack.areItemsEqualIgnoreDurability(heldItem, vulcaniteSword))
+			return;
+		
+		NBTTagList enchantments = heldItem.getEnchantmentTagList();
+		
+		if (enchantments == null)
+			return;
+		
+		int fireAspectLevel = 0;
+		for (int i = 0; i < enchantments.tagCount(); i++) {
+			if (enchantments.getCompoundTagAt(i).getShort("id") == Enchantment.getEnchantmentID(Enchantments.FIRE_ASPECT))
+				fireAspectLevel = enchantments.getCompoundTagAt(i).getShort("lvl");
 		}
+		
+		if (fireAspectLevel == 0)
+			return;
+		
+		Entity target = event.getEntity();
+		if (!(target instanceof EntityLivingBase))
+			return;
+		
+		EntityLivingBase entity = (EntityLivingBase)target;
+		if (!entity.isImmuneToFire())
+			return;
+		
+		float damageDealth = event.getAmount();
+		float bonusDamageDealth = damageDealth * ((Stats.Tools.bonusDamagePerFALevel / 100f) * fireAspectLevel);
+		
+		event.setAmount(damageDealth + bonusDamageDealth);
 	}
 	
 	private static ItemStack flintAndVulcanite = new ItemStack(ModItems.flintAndVulcaniteItem);

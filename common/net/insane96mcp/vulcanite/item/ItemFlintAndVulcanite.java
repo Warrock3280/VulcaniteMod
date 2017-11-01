@@ -2,12 +2,12 @@ package net.insane96mcp.vulcanite.item;
 
 import java.util.List;
 
-import com.mojang.realmsclient.gui.ChatFormatting;
-
 import net.insane96mcp.vulcanite.Vulcanite;
 import net.insane96mcp.vulcanite.lib.Names;
 import net.insane96mcp.vulcanite.lib.Stats;
+import net.insane96mcp.vulcanite.lib.Tooltips;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,7 +21,6 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.world.World;
 
 public class ItemFlintAndVulcanite extends ItemFlintAndSteel{
@@ -38,16 +37,13 @@ public class ItemFlintAndVulcanite extends ItemFlintAndSteel{
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
-		
 		if (GuiScreen.isShiftKeyDown()) {
-			tooltip.add(TextFormatting.GOLD + I18n.format("tooltip.flint_and_vulcanite.advanced_info.set_on_fire", Stats.FlintAndVulcanite.secondsOnFire));
-			tooltip.add(TextFormatting.GOLD + I18n.format("tooltip.flint_and_vulcanite.advanced_info.damage_on_use", Stats.FlintAndVulcanite.damageOnUse));
-			tooltip.add("");
+			tooltip.add(TextFormatting.GOLD + I18n.format(Tooltips.FlintAndVulcanite.adv_setOnFire, Stats.FlintAndVulcanite.secondsOnFire));
+			tooltip.add(TextFormatting.GOLD + I18n.format(Tooltips.FlintAndVulcanite.adv_damageOnUse, Stats.FlintAndVulcanite.damageOnUse));
 		}
 		else {
-			tooltip.add(TextFormatting.GOLD + I18n.format("tooltip.flint_and_vulcanite.base_info.set_on_fire"));
-			tooltip.add(ChatFormatting.GRAY + I18n.format("tooltip.general.shift_for_more"));
-			tooltip.add("");
+			tooltip.add(TextFormatting.GOLD + I18n.format(Tooltips.FlintAndVulcanite.base_setOnFire));
+			tooltip.add(I18n.format(Tooltips.General.shiftForMore));
 		}
 	}
 

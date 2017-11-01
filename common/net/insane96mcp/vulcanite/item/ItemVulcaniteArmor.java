@@ -4,6 +4,10 @@ import java.util.List;
 
 import net.insane96mcp.vulcanite.Vulcanite;
 import net.insane96mcp.vulcanite.init.ModItems;
+import net.insane96mcp.vulcanite.lib.Stats;
+import net.insane96mcp.vulcanite.lib.Tooltips;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -29,8 +33,12 @@ public class ItemVulcaniteArmor extends ItemArmor{
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
-		for (int i = 0; i < ModItems.armorLore.length; i++) {
-			tooltip.add(ModItems.armorLore[i]);
+		if (GuiScreen.isShiftKeyDown()) {
+			tooltip.add(TextFormatting.GOLD + I18n.format(Tooltips.Armor.adv_damageReduction, Stats.Armor.hotSourceDamageReduction));
+		}
+		else {
+			tooltip.add(TextFormatting.GOLD + I18n.format(Tooltips.Armor.base_damageReduction));
+			tooltip.add(I18n.format(Tooltips.General.shiftForMore));
 		}
 	}
 }

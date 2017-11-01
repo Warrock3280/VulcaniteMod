@@ -3,7 +3,11 @@ package net.insane96mcp.vulcanite.item;
 import java.util.List;
 
 import net.insane96mcp.vulcanite.Vulcanite;
-import net.insane96mcp.vulcanite.init.ModItems;
+import net.insane96mcp.vulcanite.lib.Names;
+import net.insane96mcp.vulcanite.lib.Stats;
+import net.insane96mcp.vulcanite.lib.Tooltips;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -19,13 +23,17 @@ public class ItemVulcaniteSword extends ItemSword{
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return "item." + Vulcanite.RESOURCE_PREFIX + net.insane96mcp.vulcanite.lib.Names.VULCANITE_SWORD;
+		return "item." + Vulcanite.RESOURCE_PREFIX + Names.VULCANITE_SWORD;
 	}
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
-		for (int i = 0; i < ModItems.itemsLore.length; i++) {
-			tooltip.add(ModItems.itemsLore[i]);
+		if (GuiScreen.isShiftKeyDown()) {
+			tooltip.add(TextFormatting.GOLD + I18n.format(Tooltips.Weapon.adv_moreDamage, Stats.Tools.bonusDamagePerFALevel));
+		}
+		else {
+			tooltip.add(TextFormatting.GOLD + I18n.format(Tooltips.Weapon.base_moreDamage));
+			tooltip.add(I18n.format(Tooltips.General.shiftForMore));
 		}
 	}
 }

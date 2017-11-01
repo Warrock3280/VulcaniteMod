@@ -11,30 +11,18 @@ import net.insane96mcp.vulcanite.item.ItemVulcaniteShovel;
 import net.insane96mcp.vulcanite.item.ItemVulcaniteSword;
 import net.insane96mcp.vulcanite.lib.MaterialHandler;
 import net.insane96mcp.vulcanite.lib.Names;
-import net.insane96mcp.vulcanite.lib.Stats;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ModItems {
-	
-	public static String[] itemsLore = new String[] {
-		TextFormatting.GOLD + "Deals " + TextFormatting.RED + Stats.Tools.bonusDamagePerFALevel + "%" + TextFormatting.GOLD + " more damage per level",
-		TextFormatting.GOLD + "of Fire Aspect to fire immune mobs"
-	};
-	
-	public static String[] armorLore = new String[] {
-		TextFormatting.GOLD + "Reduces damage from hot sources",
-		TextFormatting.GOLD + "Full Armor Set damage reduction: " + TextFormatting.RED + Stats.Armor.hotSourceDamageReduction + "%"
-	};
 	
 	public static ItemVulcanite vulcaniteItem;
 	

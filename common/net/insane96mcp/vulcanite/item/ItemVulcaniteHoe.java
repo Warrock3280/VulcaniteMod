@@ -25,8 +25,6 @@ public class ItemVulcaniteHoe extends ItemHoe{
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
-		for (int i = 0; i < ModItems.itemsLore.length; i++) {
-			tooltip.add(ModItems.itemsLore[i]);
-		}
+		
 	}
 }

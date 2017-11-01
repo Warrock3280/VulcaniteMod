@@ -27,6 +27,6 @@ public class CommonProxy {
 	}
 	
 	public void PostInit(FMLPostInitializationEvent event) {
-		if(Vulcanite.config.hasChanged()) Vulcanite.config.save();
+		Config.SaveConfig();
 	}
 }

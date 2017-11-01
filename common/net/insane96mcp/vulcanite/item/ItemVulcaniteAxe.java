@@ -3,7 +3,11 @@ package net.insane96mcp.vulcanite.item;
 import java.util.List;
 
 import net.insane96mcp.vulcanite.Vulcanite;
-import net.insane96mcp.vulcanite.init.ModItems;
+import net.insane96mcp.vulcanite.lib.Names;
+import net.insane96mcp.vulcanite.lib.Stats;
+import net.insane96mcp.vulcanite.lib.Tooltips;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemAxe;
@@ -19,13 +23,11 @@ public class ItemVulcaniteAxe extends ItemAxe{
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return "item." + Vulcanite.RESOURCE_PREFIX + net.insane96mcp.vulcanite.lib.Names.VULCANITE_AXE;
+		return "item." + Vulcanite.RESOURCE_PREFIX + Names.VULCANITE_AXE;
 	}
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
-		for (int i = 0; i < ModItems.itemsLore.length; i++) {
-			tooltip.add(ModItems.itemsLore[i]);
-		}
+		
 	}
 }
