@@ -2,9 +2,12 @@ package net.insane96mcp.vulcanite.item;
 
 import java.util.List;
 
+import com.mojang.realmsclient.gui.ChatFormatting;
+
 import net.insane96mcp.vulcanite.Vulcanite;
-import net.insane96mcp.vulcanite.lib.MaterialHandler;
-import net.minecraft.block.BlockTNT;
+import net.insane96mcp.vulcanite.lib.Names;
+import net.insane96mcp.vulcanite.lib.Stats;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,23 +21,34 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.world.World;
 
 public class ItemFlintAndVulcanite extends ItemFlintAndSteel{
 	public ItemFlintAndVulcanite(String name, ToolMaterial material, CreativeTabs tab) {
-		this.setMaxDamage(MaterialHandler.flintVulcaniteMaxUses);
+		this.setMaxDamage(Stats.FlintAndVulcanite.maxUses);
 		this.setCreativeTab(tab);
 		setRegistryName(name);
 	}
 	
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return "item." + Vulcanite.RESOURCE_PREFIX + net.insane96mcp.vulcanite.lib.Names.FLINT_AND_VULCANITE;
+		return "item." + Vulcanite.RESOURCE_PREFIX + Names.FLINT_AND_VULCANITE;
 	}
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
-		tooltip.add(TextFormatting.GOLD + "Rightclick on mob to set it on fire for " + TextFormatting.RED + MaterialHandler.flintVulcaniteSecondsOnFire + " seconds");
+		
+		if (GuiScreen.isShiftKeyDown()) {
+			tooltip.add(TextFormatting.GOLD + I18n.format("tooltip.flint_and_vulcanite.advanced_info.set_on_fire", Stats.FlintAndVulcanite.secondsOnFire));
+			tooltip.add(TextFormatting.GOLD + I18n.format("tooltip.flint_and_vulcanite.advanced_info.damage_on_use", Stats.FlintAndVulcanite.damageOnUse));
+			tooltip.add("");
+		}
+		else {
+			tooltip.add(TextFormatting.GOLD + I18n.format("tooltip.flint_and_vulcanite.base_info.set_on_fire"));
+			tooltip.add(ChatFormatting.GRAY + I18n.format("tooltip.general.shift_for_more"));
+			tooltip.add("");
+		}
 	}
 
 	@Override

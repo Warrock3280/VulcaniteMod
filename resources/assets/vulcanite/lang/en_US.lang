@@ -14,3 +14,9 @@ item.vulcanite:vulcanite_boots.name=Vulcanite Boots
 
 tile.vulcanite:vulcanite_block.name=Vulcanite Block
 tile.vulcanite:vulcanite_ore.name=Vulcanite Ore
+
+tooltip.general.shift_for_more=Press SHIFT for more infos
+
+tooltip.flint_and_vulcanite.base_info.set_on_fire=Right-Click on mob to set it on fire
+tooltip.flint_and_vulcanite.advanced_info.set_on_fire=Right-Click on mob to set it on fire for §c%d seconds
+tooltip.flint_and_vulcanite.advanced_info.damage_on_use=When used on a mob the Flint and Vulcanite will be damaged by §c%d

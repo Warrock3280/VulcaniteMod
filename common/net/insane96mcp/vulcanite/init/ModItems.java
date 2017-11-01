@@ -11,6 +11,7 @@ import net.insane96mcp.vulcanite.item.ItemVulcaniteShovel;
 import net.insane96mcp.vulcanite.item.ItemVulcaniteSword;
 import net.insane96mcp.vulcanite.lib.MaterialHandler;
 import net.insane96mcp.vulcanite.lib.Names;
+import net.insane96mcp.vulcanite.lib.Stats;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -26,13 +27,13 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ModItems {
 	
 	public static String[] itemsLore = new String[] {
-		TextFormatting.GOLD + "Deals " + TextFormatting.RED + MaterialHandler.bonusDamagePerFALevel + "%" + TextFormatting.GOLD + " more damage per level",
+		TextFormatting.GOLD + "Deals " + TextFormatting.RED + Stats.Tools.bonusDamagePerFALevel + "%" + TextFormatting.GOLD + " more damage per level",
 		TextFormatting.GOLD + "of Fire Aspect to fire immune mobs"
 	};
 	
 	public static String[] armorLore = new String[] {
 		TextFormatting.GOLD + "Reduces damage from hot sources",
-		TextFormatting.GOLD + "Full Armor Set damage reduction: " + TextFormatting.RED + MaterialHandler.hotSourcedamageReduction + "%"
+		TextFormatting.GOLD + "Full Armor Set damage reduction: " + TextFormatting.RED + Stats.Armor.hotSourceDamageReduction + "%"
 	};
 	
 	public static ItemVulcanite vulcaniteItem;
@@ -54,34 +55,34 @@ public class ModItems {
 		vulcaniteItem = new ItemVulcanite(Names.VULCANITE_ITEM, CreativeTabs.MATERIALS);
 		GameRegistry.register(vulcaniteItem);
 
-		vulcanitePickaxeItem = new ItemVulcanitePickaxe(Names.VULCANITE_PICKAXE, MaterialHandler.Vulcanite, CreativeTabs.TOOLS);
+		vulcanitePickaxeItem = new ItemVulcanitePickaxe(Names.VULCANITE_PICKAXE, MaterialHandler.toolMaterial, CreativeTabs.TOOLS);
 		GameRegistry.register(vulcanitePickaxeItem);
 
-		vulcaniteShovelItem = new ItemVulcaniteShovel(Names.VULCANITE_SHOVEL, MaterialHandler.Vulcanite, CreativeTabs.TOOLS);
+		vulcaniteShovelItem = new ItemVulcaniteShovel(Names.VULCANITE_SHOVEL, MaterialHandler.toolMaterial, CreativeTabs.TOOLS);
 		GameRegistry.register(vulcaniteShovelItem);
 
-		vulcaniteAxeItem = new ItemVulcaniteAxe(Names.VULCANITE_AXE, MaterialHandler.Vulcanite, CreativeTabs.TOOLS);
+		vulcaniteAxeItem = new ItemVulcaniteAxe(Names.VULCANITE_AXE, MaterialHandler.toolMaterial, CreativeTabs.TOOLS);
 		GameRegistry.register(vulcaniteAxeItem);
 		
-		vulcaniteHoeItem = new ItemVulcaniteHoe(Names.VULCANITE_HOE, MaterialHandler.Vulcanite, CreativeTabs.TOOLS);
+		vulcaniteHoeItem = new ItemVulcaniteHoe(Names.VULCANITE_HOE, MaterialHandler.toolMaterial, CreativeTabs.TOOLS);
 		GameRegistry.register(vulcaniteHoeItem);
 		
-		vulcaniteSwordItem = new ItemVulcaniteSword(Names.VULCANITE_SWORD, MaterialHandler.Vulcanite, CreativeTabs.COMBAT);
+		vulcaniteSwordItem = new ItemVulcaniteSword(Names.VULCANITE_SWORD, MaterialHandler.toolMaterial, CreativeTabs.COMBAT);
 		GameRegistry.register(vulcaniteSwordItem);
 		
-		flintAndVulcaniteItem = new ItemFlintAndVulcanite(Names.FLINT_AND_VULCANITE, MaterialHandler.Vulcanite, CreativeTabs.TOOLS);
+		flintAndVulcaniteItem = new ItemFlintAndVulcanite(Names.FLINT_AND_VULCANITE, MaterialHandler.toolMaterial, CreativeTabs.TOOLS);
 		GameRegistry.register(flintAndVulcaniteItem);
 
-		vulcaniteHelmetItem = new ItemVulcaniteArmor(Names.VULCANITE_HELMET, MaterialHandler.vulcaniteArmorMaterial, 0, EntityEquipmentSlot.HEAD);
+		vulcaniteHelmetItem = new ItemVulcaniteArmor(Names.VULCANITE_HELMET, MaterialHandler.armorMaterial, 0, EntityEquipmentSlot.HEAD);
 		GameRegistry.register(vulcaniteHelmetItem);
 
-		vulcaniteChestplateItem = new ItemVulcaniteArmor(Names.VULCANITE_CHESTPLATE, MaterialHandler.vulcaniteArmorMaterial, 0, EntityEquipmentSlot.CHEST);
+		vulcaniteChestplateItem = new ItemVulcaniteArmor(Names.VULCANITE_CHESTPLATE, MaterialHandler.armorMaterial, 0, EntityEquipmentSlot.CHEST);
 		GameRegistry.register(vulcaniteChestplateItem);
 
-		vulcaniteLeggingsItem = new ItemVulcaniteArmor(Names.VULCANITE_LEGGINGS, MaterialHandler.vulcaniteArmorMaterial, 1, EntityEquipmentSlot.LEGS);
+		vulcaniteLeggingsItem = new ItemVulcaniteArmor(Names.VULCANITE_LEGGINGS, MaterialHandler.armorMaterial, 1, EntityEquipmentSlot.LEGS);
 		GameRegistry.register(vulcaniteLeggingsItem);
 
-		vulcaniteBootsItem = new ItemVulcaniteArmor(Names.VULCANITE_BOOTS, MaterialHandler.vulcaniteArmorMaterial, 0, EntityEquipmentSlot.FEET);
+		vulcaniteBootsItem = new ItemVulcaniteArmor(Names.VULCANITE_BOOTS, MaterialHandler.armorMaterial, 0, EntityEquipmentSlot.FEET);
 		GameRegistry.register(vulcaniteBootsItem);
 	}
 	

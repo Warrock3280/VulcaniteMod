@@ -14,3 +14,9 @@ item.vulcanite:vulcanite_boots.name=Stivali di Vulcanite
 
 tile.vulcanite:vulcanite_block.name=Blocco di Vulcanite
 tile.vulcanite:vulcanite_ore.name=Vulcanite Grezza
+
+tooltip.general.shift_for_more=Premi MAIUSC per più informazioni
+
+tooltip.flint_and_vulcanite.base_info.set_on_fire=Clicca col Tasto Destro su un mob per dargli fuoco
+tooltip.flint_and_vulcanite.advanced_info.set_on_fire=Clicca col Tasto Destro su un mob per dargli fuoco per §c%d secondi
+tooltip.flint_and_vulcanite.advanced_info.damage_on_use=Quando usato su di un mob, l'Acciarino in Vulcanite sarà danneggiato di §c%d

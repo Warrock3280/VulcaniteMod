@@ -1,0 +1,78 @@
+package net.insane96mcp.vulcanite.lib;
+
+import net.insane96mcp.vulcanite.Config;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraftforge.common.util.EnumHelper;
+
+public class Stats {
+	
+	public static void Init() {
+		Tools.Init();
+		FlintAndVulcanite.Init();
+		Armor.Init();
+		OreGeneration.Init();
+	}
+	
+	public static class Tools{
+		public static int harvestLevel;
+		public static int maxUses;
+		public static float efficency;
+		public static float baseDamage;
+		public static int enchantability;
+		public static float bonusDamagePerFALevel;
+		
+		public static void Init() {
+			harvestLevel = Config.LoadIntProperty("tools_and_weapon", "harvest_level", "Harvest level for Vulcanite Tools\n(0 for wood, 1 for stone, 2 for iron, 3 for diamond)\n", 3);
+			maxUses = Config.LoadIntProperty("tools_and_weapon", "max_uses", "Durability for Vulcanite Tools and Sword", 859);
+			efficency = Config.LoadFloatProperty("tools_and_weapon", "efficency", "Efficency for Vulcanite Tools", 7f);
+			baseDamage = Config.LoadFloatProperty("tools_and_weapon", "base_damage", "Base Damage for Vulcanite Tools and Sword", 2.5f);
+			enchantability = Config.LoadIntProperty("tools_and_weapon", "enchantability", "Enchantability for Vulcanite Tools and Sword", 16);
+			bonusDamagePerFALevel = Config.LoadFloatProperty("tools_and_weapon", "bonus_damage", "Bonus damage % dealt to Fire Immune mobs per Fire Aspect Level", 15f);
+		}
+	}
+	
+	public static class Armor{
+		public static int baseDurability;
+		public static int[] armorPoints;
+		public static int enchantability;
+		public static float toughness;
+		public static float hotSourceDamageReduction;
+		
+		public static void Init() {
+			baseDurability = Config.LoadIntProperty("armor", "base_durability", "Base durability for Vulcanite Armor\n(this value is multiplied by [11, 16, 15, 13] respectively from helmet to boots)\n", 24);
+			armorPoints = Config.LoadIntListProperty("armor", "armor_points", "Armor Points given by Vulcanite Armor", new int[] {2, 5, 4, 2});
+			enchantability = Config.LoadIntProperty("armor", "enchantability", "Enchantability for Vulcanite Armor", 17);
+			toughness = Config.LoadFloatProperty("armor", "toughness", "Toughness for Vulcanite Armor", 0f);
+			hotSourceDamageReduction = Config.LoadFloatProperty("armor", "damage_reduction", "Percentage damage reduction from Fire sources with Vulcanite Armor", 75f);
+		}
+	}
+	
+	public static class FlintAndVulcanite {
+		public static int secondsOnFire;
+		public static int maxUses;
+		public static int damageOnUse;
+		
+		public static void Init() {
+			secondsOnFire = Config.LoadIntProperty("flint_and_vulcanite", "ignite_seconds", "The number of seconds an entity will be set on fire when right clicked with Flint and Vulcanite", 4);
+			maxUses = Config.LoadIntProperty("flint_and_vulcanite", "max_uses", "The durability of Flint and Vulcanite", 222);
+			damageOnUse = Config.LoadIntProperty("flint_and_vulcanite", "damage_on_use", "How much the flint and vulcanite will be damaged when you set a mob on fire", 2);
+		}
+	}
+	
+	public static class OreGeneration{
+		public static int orePerVein;
+		public static int veinPerChunk;
+		public static int minY;
+		public static int maxY;
+		
+		public static void Init() {			
+			orePerVein = Config.LoadIntProperty("ore_generation", "block_per_vein", "Number of ores generated per vein", 3);
+			veinPerChunk = Config.LoadIntProperty("ore_generation", "vein_per_chunk", "Number of veins that have to try to spawn per chunk", 40);
+			minY = Config.LoadIntProperty("ore_generation", "min_Y", "The minimum height (Y) to try to generate Veins", 0);
+			maxY = Config.LoadIntProperty("ore_generation", "max_Y", "The maximum height (Y) to try to generate Veins", 32);
+		}
+	}
+	
+}

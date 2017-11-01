@@ -41,7 +41,7 @@ public class ModBlocks {
 		GameRegistry.register(vulcaniteOre);
 		GameRegistry.register(new ItemBlock(vulcaniteOre), location);
 		
-		GameRegistry.registerWorldGenerator(new NetherGenOres(), 0);
+		GameRegistry.registerWorldGenerator(new OreGeneration(), 0);
 	}
 	
 	public static void PostInit() {

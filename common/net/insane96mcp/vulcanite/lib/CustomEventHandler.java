@@ -18,7 +18,6 @@ import net.minecraft.util.SoundCategory;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import scala.inline;
 
 public class CustomEventHandler {
 	
@@ -68,7 +67,7 @@ public class CustomEventHandler {
 			}
 		    
 		    if (materialsUsed >= 1) {
-		    	float maxReduction = MaterialHandler.hotSourcedamageReduction / 100f;
+		    	float maxReduction = Stats.Armor.hotSourceDamageReduction / 100f;
 		    	float reductionPerMaterial = maxReduction / 24f;
 		    	float percentageReduction = reductionPerMaterial * materialsUsed;
 		    	amount = amount * (1f - percentageReduction);
@@ -84,8 +83,6 @@ public class CustomEventHandler {
 		new ItemStack(ModItems.vulcaniteShovelItem),
 		new ItemStack(ModItems.vulcaniteSwordItem)
 	};
-	
-	private static final float bonusDamagePerLevel = MaterialHandler.bonusDamagePerFALevel / 100;
 	
 	public static void OnPlayerDamageEntity(LivingHurtEvent event) {
 		if (event.getSource().damageType != "player")
@@ -120,7 +117,7 @@ public class CustomEventHandler {
 				return;
 			
 			float damageDealth = event.getAmount();
-			float bonusDamageDealth = damageDealth * (bonusDamagePerLevel * fireAspectLevel);
+			float bonusDamageDealth = damageDealth * ((Stats.Tools.bonusDamagePerFALevel / 100f) * fireAspectLevel);
 			
 			event.setAmount(damageDealth + bonusDamageDealth);
 		}
@@ -144,7 +141,7 @@ public class CustomEventHandler {
 			if (entityLivingBase.isImmuneToFire())
 				return;
 			
-			entityLivingBase.setFire(MaterialHandler.flintVulcaniteSecondsOnFire);
+			entityLivingBase.setFire(Stats.FlintAndVulcanite.secondsOnFire);
 			if (entityLivingBase instanceof EntityCreeper) {
 				NBTTagCompound ignited = new NBTTagCompound();
 				ignited.setByte("ignited", (byte)1);
@@ -152,9 +149,11 @@ public class CustomEventHandler {
 			}
 			if (ItemStack.areItemsEqualIgnoreDurability(mainHand, flintAndVulcanite)) {
 				player.swingArm(EnumHand.MAIN_HAND);
+				mainHand.damageItem(Stats.FlintAndVulcanite.damageOnUse, player);
 			}
 			else { 
 				player.swingArm(EnumHand.OFF_HAND);
+				offHand.damageItem(Stats.FlintAndVulcanite.damageOnUse, player);
 			}
 			
 			event.getWorld().playSound(player, entityLivingBase.getPosition(), SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS, 1.0f, event.getWorld().rand.nextFloat() * 0.4F + 0.8F);
