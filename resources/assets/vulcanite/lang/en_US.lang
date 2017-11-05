@@ -20,8 +20,11 @@ tooltip.general.shift_for_more=§7Press SHIFT for more infos
 tooltip.weapon.base_info.more_damage=§6Deals more damage to fire immune mobs when Fire Aspect is present
 tooltip.weapon.adv_info.more_damage=§6Deals §c%f%%§6 more damage per level of Fire Aspect to fire immune mobs
 
+tooltip.tool.base_info.more_efficient=§6While in the nether the tool is more efficient
+tooltip.tool.adv_info.more_efficient=§6While in the nether the tool mines blocks §c%f%%§6 faster!
+
 tooltip.armor.base_info.damage_reduction=§6Reduces damage from hot sources
-tooltip.armor.adv_info.damage_reduction=§6Reduces damage from hot sources. Full Armor Set damage reduction: §c%f%%§6
+tooltip.armor.adv_info.damage_reduction=§6Full Armor Set damage reduction: §c%f%%§6. One Piece of armor reduces the damage based on how many materials have been used to craft it.
 
 tooltip.flint_and_vulcanite.base_info.set_on_fire=§6Right-Click on mob to set it on fire
 tooltip.flint_and_vulcanite.adv_info.set_on_fire=§6Right-Click on mob to set it on fire for §c%d§6 seconds

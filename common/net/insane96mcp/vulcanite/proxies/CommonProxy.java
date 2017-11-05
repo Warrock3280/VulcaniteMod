@@ -1,5 +1,6 @@
-package net.insane96mcp.vulcanite;
+package net.insane96mcp.vulcanite.proxies;
 
+import net.insane96mcp.vulcanite.Config;
 import net.insane96mcp.vulcanite.init.ModBlocks;
 import net.insane96mcp.vulcanite.init.ModItems;
 import net.insane96mcp.vulcanite.lib.CustomEventHandler;

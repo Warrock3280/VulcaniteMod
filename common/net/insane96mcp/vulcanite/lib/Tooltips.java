@@ -24,4 +24,8 @@ public class Tooltips {
 		
 		public static String adv_damageReduction = "tooltip.armor.adv_info.damage_reduction";
 	}
+	
+	public static class Tool{
+		
+	}
 }

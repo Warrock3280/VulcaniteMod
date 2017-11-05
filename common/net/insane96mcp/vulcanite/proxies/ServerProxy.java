@@ -1,4 +1,4 @@
-package net.insane96mcp.vulcanite;
+package net.insane96mcp.vulcanite.proxies;
 
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;

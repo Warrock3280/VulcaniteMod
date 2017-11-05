@@ -1,5 +1,5 @@
 item.vulcanite:vulcanite.name=Vulcanite
-item.vulcanite:vulcanite_pickaxe.name=Picconi di Vulcanite
+item.vulcanite:vulcanite_pickaxe.name=Piccone di Vulcanite
 item.vulcanite:vulcanite_axe.name=Ascia di Vulcanite
 item.vulcanite:vulcanite_shovel.name=Pala di Vulcanite
 item.vulcanite:vulcanite_hoe.name=Zappa di Vulcanite
@@ -18,10 +18,13 @@ tile.vulcanite:vulcanite_ore.name=Vulcanite Grezza
 tooltip.general.shift_for_more=§7Premi MAIUSC per più informazioni
 
 tooltip.weapon.base_info.more_damage=§6Fa più danno ai mob immuni al fuoco quando Aspetto di Fuoco è presente
-tooltip.weapon.adv_info.more_damage=§6Fa il §c%f%%§6 più danno per livello di Aspetto di Fuoco ai mob immuni al fuoco
+tooltip.weapon.adv_info.more_damage=§6Fa il §c%f%%§6 in più di danno per livello di Aspetto di Fuoco ai mob immuni al fuoco
 
-tooltip.armor.base_info.damage_reduction=§6Riduce il danno dalle sorgenti calde
-tooltip.armor.adv_info.damage_reduction=§6Riduce il danno dalle sorgenti calde. L'armatura completa riduce il danno del §c%f%%§6
+tooltip.tool.base_info.more_efficient=§6Nel nether, l'attrezzo è più efficiente
+tooltip.tool.adv_info.more_efficient=§6Nel nether, l'attrezzo rompe i blocchi il §c%f%%§6 più velocemente!
+
+tooltip.armor.base_info.damage_reduction=§6Riduce il danno dalle sorgenti di calore
+tooltip.armor.adv_info.damage_reduction=§6L'armatura completa riduce il danno da sorgenti di calore del §c%f%%§6. Un pezzo di armatura riduce il danno in base a quanto materiale è stato usato per fabbricarlo.
 
 tooltip.flint_and_vulcanite.base_info.set_on_fire=§6Clicca col Tasto Destro su un mob per dargli fuoco
 tooltip.flint_and_vulcanite.adv_info.set_on_fire=§6Clicca col Tasto Destro su un mob per dargli fuoco per §c%d§6 secondi

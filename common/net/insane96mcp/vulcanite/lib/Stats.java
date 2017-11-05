@@ -21,7 +21,9 @@ public class Stats {
 		public static float efficency;
 		public static float baseDamage;
 		public static int enchantability;
+		
 		public static float bonusDamagePerFALevel;
+		public static float bonusEfficency;
 		
 		public static void Init() {
 			harvestLevel = Config.LoadIntProperty("tools_and_weapon", "harvest_level", "Harvest level for Vulcanite Tools\n(0 for wood, 1 for stone, 2 for iron, 3 for diamond)\n", 3);
@@ -30,6 +32,9 @@ public class Stats {
 			baseDamage = Config.LoadFloatProperty("tools_and_weapon", "base_damage", "Base Damage for Vulcanite Tools and Sword", 2.5f);
 			enchantability = Config.LoadIntProperty("tools_and_weapon", "enchantability", "Enchantability for Vulcanite Tools and Sword", 16);
 			bonusDamagePerFALevel = Config.LoadFloatProperty("tools_and_weapon", "bonus_damage", "Bonus damage % dealt to Fire Immune mobs per Fire Aspect Level", 15f);
+			bonusEfficency = Config.LoadFloatProperty("tools_and_weapon", "bonus_efficency_in_nether", "Bonus Efficency % for tools when in the nether (100.0 means that the tool will be twice as fast in the nether)", 100f);
+			//bonusDurability = Config.LoadFloatProperty("tools_and_weapon", "bonus_durability_in_nether", "Bonus Durability % for tools when in the nether (100.0 means that the tool will be twice as fast in the nether)", 100f);
+			
 		}
 	}
 	
@@ -54,10 +59,13 @@ public class Stats {
 		public static int maxUses;
 		public static int damageOnUse;
 		
+		public static boolean pvp;
+		
 		public static void Init() {
 			secondsOnFire = Config.LoadIntProperty("flint_and_vulcanite", "ignite_seconds", "The number of seconds an entity will be set on fire when right clicked with Flint and Vulcanite", 4);
 			maxUses = Config.LoadIntProperty("flint_and_vulcanite", "max_uses", "The durability of Flint and Vulcanite", 222);
 			damageOnUse = Config.LoadIntProperty("flint_and_vulcanite", "damage_on_use", "How much the flint and vulcanite will be damaged when you set a mob on fire", 2);
+			pvp = Config.LoadBoolProperty("flint_and_vulcanite", "pvp", "If true, players will be able to ignite other players", false);
 		}
 	}
 	
