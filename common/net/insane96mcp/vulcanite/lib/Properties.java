@@ -12,6 +12,7 @@ public class Properties {
 		FlintAndVulcanite.Init();
 		Armor.Init();
 		OreGeneration.Init();
+		General.Init();
 	}
 	
 	public static class Tools{
