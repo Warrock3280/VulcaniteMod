@@ -4,7 +4,6 @@ import net.insane96mcp.vulcanite.Vulcanite;
 import net.insane96mcp.vulcanite.block.BlockVulcanite;
 import net.insane96mcp.vulcanite.block.BlockVulcaniteOre;
 import net.insane96mcp.vulcanite.lib.Names;
-import net.insane96mcp.vulcanite.lib.OreGeneration;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -16,6 +15,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import worldgen.OreGeneration;
 
 public class ModBlocks {
 	
