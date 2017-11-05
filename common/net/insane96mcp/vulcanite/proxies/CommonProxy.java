@@ -1,12 +1,12 @@
 package net.insane96mcp.vulcanite.proxies;
 
-import net.insane96mcp.vulcanite.Config;
 import net.insane96mcp.vulcanite.events.LivingHurt;
 import net.insane96mcp.vulcanite.events.PlayerBreakSpeed;
 import net.insane96mcp.vulcanite.events.PlayerEntityInteract;
 import net.insane96mcp.vulcanite.init.ModBlocks;
 import net.insane96mcp.vulcanite.init.ModItems;
-import net.insane96mcp.vulcanite.lib.Stats;
+import net.insane96mcp.vulcanite.lib.Config;
+import net.insane96mcp.vulcanite.lib.Properties;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -17,7 +17,7 @@ public class CommonProxy {
 	public void PreInit(FMLPreInitializationEvent event) {
 		Config.config = new Configuration(event.getSuggestedConfigurationFile());
 		Config.SyncConfig();
-		Stats.Init();
+		Properties.Init();
 		
 		ModItems.Init();
 		ModBlocks.Init();

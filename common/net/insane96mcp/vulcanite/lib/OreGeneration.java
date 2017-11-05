@@ -2,7 +2,6 @@ package net.insane96mcp.vulcanite.lib;
 
 import java.util.Random;
 
-import net.insane96mcp.vulcanite.Config;
 import net.insane96mcp.vulcanite.init.ModBlocks;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
@@ -18,7 +17,7 @@ public class OreGeneration implements IWorldGenerator {
 	private final WorldGenMinable worldGenMinable;
 	
 	public OreGeneration() {
-		worldGenMinable = new WorldGenMinable(ModBlocks.vulcaniteOre.getDefaultState(), Stats.OreGeneration.orePerVein, BlockMatcher.forBlock(Blocks.NETHERRACK));
+		worldGenMinable = new WorldGenMinable(ModBlocks.vulcaniteOre.getDefaultState(), Properties.OreGeneration.orePerVein, BlockMatcher.forBlock(Blocks.NETHERRACK));
 	}
 	
 	@Override
@@ -27,8 +26,8 @@ public class OreGeneration implements IWorldGenerator {
 		BlockPos chunkPos = new BlockPos(chunkX * 16, 0, chunkZ * 16);
 
 		if (world.provider.getDimension() == -1) {
-			for (int i = 0; i < Stats.OreGeneration.veinPerChunk; i++) {
-				worldGenMinable.generate(world, random, chunkPos.add(random.nextInt(16), random.nextInt(Stats.OreGeneration.maxY - Stats.OreGeneration.minY) + Stats.OreGeneration.minY, random.nextInt(16)));
+			for (int i = 0; i < Properties.OreGeneration.veinPerChunk; i++) {
+				worldGenMinable.generate(world, random, chunkPos.add(random.nextInt(16), random.nextInt(Properties.OreGeneration.maxY - Properties.OreGeneration.minY) + Properties.OreGeneration.minY, random.nextInt(16)));
 			}
 		}
 	}

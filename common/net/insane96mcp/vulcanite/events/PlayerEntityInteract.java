@@ -1,7 +1,7 @@
 package net.insane96mcp.vulcanite.events;
 
 import net.insane96mcp.vulcanite.init.ModItems;
-import net.insane96mcp.vulcanite.lib.Stats;
+import net.insane96mcp.vulcanite.lib.Properties;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityCreeper;
@@ -35,13 +35,13 @@ public class PlayerEntityInteract {
 		
 		EntityLivingBase entityLivingBase = (EntityLivingBase)target;
 		
-		if (entityLivingBase instanceof EntityPlayerMP && !Stats.FlintAndVulcanite.pvp)
+		if (entityLivingBase instanceof EntityPlayerMP && !Properties.FlintAndVulcanite.pvp)
 			return;
 		
 		if (entityLivingBase.isImmuneToFire())
 			return;
 		
-		entityLivingBase.setFire(Stats.FlintAndVulcanite.secondsOnFire);
+		entityLivingBase.setFire(Properties.FlintAndVulcanite.secondsOnFire);
 		if (entityLivingBase instanceof EntityCreeper) {
 			NBTTagCompound ignited = new NBTTagCompound();
 			ignited.setByte("ignited", (byte)1);
@@ -49,11 +49,11 @@ public class PlayerEntityInteract {
 		}
 		if (ItemStack.areItemsEqualIgnoreDurability(mainHand, flintAndVulcanite)) {
 			player.swingArm(EnumHand.MAIN_HAND);
-			mainHand.damageItem(Stats.FlintAndVulcanite.damageOnUse, player);
+			mainHand.damageItem(Properties.FlintAndVulcanite.damageOnUse, player);
 		}
 		else { 
 			player.swingArm(EnumHand.OFF_HAND);
-			offHand.damageItem(Stats.FlintAndVulcanite.damageOnUse, player);
+			offHand.damageItem(Properties.FlintAndVulcanite.damageOnUse, player);
 		}
 		
 		event.getWorld().playSound(player, entityLivingBase.getPosition(), SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS, 1.0f, event.getWorld().rand.nextFloat() * 0.4F + 0.8F);

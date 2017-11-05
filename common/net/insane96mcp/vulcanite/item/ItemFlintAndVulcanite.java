@@ -4,7 +4,7 @@ import java.util.List;
 
 import net.insane96mcp.vulcanite.Vulcanite;
 import net.insane96mcp.vulcanite.lib.Names;
-import net.insane96mcp.vulcanite.lib.Stats;
+import net.insane96mcp.vulcanite.lib.Properties;
 import net.insane96mcp.vulcanite.lib.Tooltips;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 
 public class ItemFlintAndVulcanite extends ItemFlintAndSteel{
 	public ItemFlintAndVulcanite(String name, ToolMaterial material, CreativeTabs tab) {
-		this.setMaxDamage(Stats.FlintAndVulcanite.maxUses);
+		this.setMaxDamage(Properties.FlintAndVulcanite.maxUses);
 		this.setCreativeTab(tab);
 		setRegistryName(name);
 	}
@@ -38,8 +38,8 @@ public class ItemFlintAndVulcanite extends ItemFlintAndSteel{
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
 		if (GuiScreen.isShiftKeyDown()) {
-			tooltip.add(I18n.format(Tooltips.FlintAndVulcanite.adv_setOnFire, Stats.FlintAndVulcanite.secondsOnFire));
-			tooltip.add(I18n.format(Tooltips.FlintAndVulcanite.adv_damageOnUse, Stats.FlintAndVulcanite.damageOnUse));
+			tooltip.add(I18n.format(Tooltips.FlintAndVulcanite.adv_setOnFire, Properties.FlintAndVulcanite.secondsOnFire));
+			tooltip.add(I18n.format(Tooltips.FlintAndVulcanite.adv_damageOnUse, Properties.FlintAndVulcanite.damageOnUse));
 		}
 		else {
 			tooltip.add(I18n.format(Tooltips.FlintAndVulcanite.base_setOnFire));

@@ -1,7 +1,7 @@
 package net.insane96mcp.vulcanite.events;
 
 import net.insane96mcp.vulcanite.init.ModItems;
-import net.insane96mcp.vulcanite.lib.Stats;
+import net.insane96mcp.vulcanite.lib.Properties;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -40,7 +40,7 @@ public class PlayerBreakSpeed {
 			return;
 		
 		float speed = event.getOriginalSpeed();
-		speed += event.getOriginalSpeed() * Stats.Tools.bonusEfficency / 100f;
+		speed += event.getOriginalSpeed() * Properties.Tools.bonusEfficency / 100f;
 		event.setNewSpeed(speed);
 	}
 }

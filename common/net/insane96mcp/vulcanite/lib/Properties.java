@@ -1,12 +1,11 @@
 package net.insane96mcp.vulcanite.lib;
 
-import net.insane96mcp.vulcanite.Config;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 
-public class Stats {
+public class Properties {
 	
 	public static void Init() {
 		Tools.Init();

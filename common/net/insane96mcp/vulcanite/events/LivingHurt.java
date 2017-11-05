@@ -1,7 +1,7 @@
 package net.insane96mcp.vulcanite.events;
 
 import net.insane96mcp.vulcanite.init.ModItems;
-import net.insane96mcp.vulcanite.lib.Stats;
+import net.insane96mcp.vulcanite.lib.Properties;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -62,7 +62,7 @@ public class LivingHurt {
 			}
 		    
 		    if (materialsUsed >= 1) {
-		    	float maxReduction = Stats.Armor.hotSourceDamageReduction / 100f;
+		    	float maxReduction = Properties.Armor.hotSourceDamageReduction / 100f;
 		    	float reductionPerMaterial = maxReduction / 24f;
 		    	float percentageReduction = reductionPerMaterial * materialsUsed;
 		    	amount = amount * (1f - percentageReduction);
@@ -105,7 +105,7 @@ public class LivingHurt {
 			return;
 		
 		float damageDealth = event.getAmount();
-		float bonusDamageDealth = damageDealth * ((Stats.Tools.bonusDamagePerFALevel / 100f) * fireAspectLevel);
+		float bonusDamageDealth = damageDealth * ((Properties.Tools.bonusDamagePerFALevel / 100f) * fireAspectLevel);
 		
 		event.setAmount(damageDealth + bonusDamageDealth);
 	}
