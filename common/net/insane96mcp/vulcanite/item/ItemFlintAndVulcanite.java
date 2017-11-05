@@ -5,7 +5,11 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import net.insane96mcp.vulcanite.Vulcanite;
-import net.insane96mcp.vulcanite.lib.MaterialHandler;
+import net.insane96mcp.vulcanite.lib.Names;
+import net.insane96mcp.vulcanite.lib.Properties;
+import net.insane96mcp.vulcanite.lib.Tooltips;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityTNTPrimed;
@@ -19,24 +23,30 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 public class ItemFlintAndVulcanite extends ItemFlintAndSteel{
 	public ItemFlintAndVulcanite(String name, ToolMaterial material, CreativeTabs tab) {
-		this.setMaxDamage(MaterialHandler.flintVulcaniteMaxUses);
+		this.setMaxDamage(Properties.FlintAndVulcanite.maxUses);
 		this.setCreativeTab(tab);
 		setRegistryName(name);
 	}
 	
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return "item." + Vulcanite.RESOURCE_PREFIX + net.insane96mcp.vulcanite.lib.Names.FLINT_AND_VULCANITE;
+		return "item." + Vulcanite.RESOURCE_PREFIX + Names.FLINT_AND_VULCANITE;
 	}
 	
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-		tooltip.add(TextFormatting.GOLD + "Rightclick on mob to set it on fire for " + TextFormatting.RED + MaterialHandler.flintVulcaniteSecondsOnFire + " seconds");
+		if (GuiScreen.isShiftKeyDown()) {
+			tooltip.add(I18n.format(Tooltips.FlintAndVulcanite.adv_setOnFire, Properties.FlintAndVulcanite.secondsOnFire));
+			tooltip.add(I18n.format(Tooltips.FlintAndVulcanite.adv_damageOnUse, Properties.FlintAndVulcanite.damageOnUse));
+		}
+		else {
+			tooltip.add(I18n.format(Tooltips.FlintAndVulcanite.base_setOnFire));
+			tooltip.add(I18n.format(Tooltips.General.shiftForMore));
+		}
 	}
 
 	@Override

@@ -6,16 +6,11 @@ import net.insane96mcp.vulcanite.Vulcanite;
 import net.insane96mcp.vulcanite.block.BlockVulcanite;
 import net.insane96mcp.vulcanite.block.BlockVulcaniteOre;
 import net.insane96mcp.vulcanite.lib.Names;
+import net.insane96mcp.vulcanite.worldgen.OreGeneration;
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.ItemModelMesher;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ModBlocks {
 	
@@ -43,7 +38,7 @@ public class ModBlocks {
 		vulcaniteOre.setHarvestLevel("pickaxe", 3);
 		BLOCKS.add(vulcaniteOre);
 
-		GameRegistry.registerWorldGenerator(new NetherGenOres(), 0);
+		GameRegistry.registerWorldGenerator(new OreGeneration(), 0);
 	}
 	
 	public static void PostInit() {

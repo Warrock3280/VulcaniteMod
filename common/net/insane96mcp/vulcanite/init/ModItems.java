@@ -10,28 +10,15 @@ import net.insane96mcp.vulcanite.item.ItemVulcaniteHoe;
 import net.insane96mcp.vulcanite.item.ItemVulcanitePickaxe;
 import net.insane96mcp.vulcanite.item.ItemVulcaniteShovel;
 import net.insane96mcp.vulcanite.item.ItemVulcaniteSword;
-import net.insane96mcp.vulcanite.lib.MaterialHandler;
+import net.insane96mcp.vulcanite.item.material.ModMaterial;
 import net.insane96mcp.vulcanite.lib.Names;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModItems {
-	
-	public static String[] itemsLore = new String[] {
-		TextFormatting.GOLD + "Deals " + TextFormatting.RED + MaterialHandler.bonusDamagePerFALevel + "%" + TextFormatting.GOLD + " more damage per level",
-		TextFormatting.GOLD + "of Fire Aspect to fire immune mobs"
-	};
-	
-	public static String[] armorLore = new String[] {
-		TextFormatting.GOLD + "Reduces damage from hot sources",
-		TextFormatting.GOLD + "Full Armor Set damage reduction: " + TextFormatting.RED + MaterialHandler.hotSourcedamageReduction + "%"
-	};
-	
-	
 	public static ItemVulcanite vulcaniteItem;
 	
 	public static ItemVulcanitePickaxe vulcanitePickaxeItem;
@@ -53,34 +40,34 @@ public class ModItems {
 		vulcaniteItem = new ItemVulcanite(Names.VULCANITE_ITEM, CreativeTabs.MATERIALS);
 		ITEMS.add(vulcaniteItem);
 
-		vulcanitePickaxeItem = new ItemVulcanitePickaxe(Names.VULCANITE_PICKAXE, MaterialHandler.Vulcanite, CreativeTabs.TOOLS);
+		vulcanitePickaxeItem = new ItemVulcanitePickaxe(Names.VULCANITE_PICKAXE, ModMaterial.tool, CreativeTabs.TOOLS);
 		ITEMS.add(vulcanitePickaxeItem);
 
-		vulcaniteShovelItem = new ItemVulcaniteShovel(Names.VULCANITE_SHOVEL, MaterialHandler.Vulcanite, CreativeTabs.TOOLS);
+		vulcaniteShovelItem = new ItemVulcaniteShovel(Names.VULCANITE_SHOVEL, ModMaterial.tool, CreativeTabs.TOOLS);
 		ITEMS.add(vulcaniteShovelItem);
 
-		vulcaniteAxeItem = new ItemVulcaniteAxe(Names.VULCANITE_AXE, MaterialHandler.Vulcanite, CreativeTabs.TOOLS);
+		vulcaniteAxeItem = new ItemVulcaniteAxe(Names.VULCANITE_AXE, ModMaterial.tool, CreativeTabs.TOOLS);
 		ITEMS.add(vulcaniteAxeItem);
 		
-		vulcaniteHoeItem = new ItemVulcaniteHoe(Names.VULCANITE_HOE, MaterialHandler.Vulcanite, CreativeTabs.TOOLS);
+		vulcaniteHoeItem = new ItemVulcaniteHoe(Names.VULCANITE_HOE, ModMaterial.tool, CreativeTabs.TOOLS);
 		ITEMS.add(vulcaniteHoeItem);
 		
-		vulcaniteSwordItem = new ItemVulcaniteSword(Names.VULCANITE_SWORD, MaterialHandler.Vulcanite, CreativeTabs.COMBAT);
+		vulcaniteSwordItem = new ItemVulcaniteSword(Names.VULCANITE_SWORD, ModMaterial.tool, CreativeTabs.COMBAT);
 		ITEMS.add(vulcaniteSwordItem);
 		
-		flintAndVulcaniteItem = new ItemFlintAndVulcanite(Names.FLINT_AND_VULCANITE, MaterialHandler.Vulcanite, CreativeTabs.TOOLS);
+		flintAndVulcaniteItem = new ItemFlintAndVulcanite(Names.FLINT_AND_VULCANITE, ModMaterial.tool, CreativeTabs.TOOLS);
 		ITEMS.add(flintAndVulcaniteItem);
 
-		vulcaniteHelmetItem = new ItemVulcaniteArmor(Names.VULCANITE_HELMET, MaterialHandler.vulcaniteArmorMaterial, 0, EntityEquipmentSlot.HEAD);
+		vulcaniteHelmetItem = new ItemVulcaniteArmor(Names.VULCANITE_HELMET, ModMaterial.armor, 0, EntityEquipmentSlot.HEAD);
 		ITEMS.add(vulcaniteHelmetItem);
 
-		vulcaniteChestplateItem = new ItemVulcaniteArmor(Names.VULCANITE_CHESTPLATE, MaterialHandler.vulcaniteArmorMaterial, 0, EntityEquipmentSlot.CHEST);
+		vulcaniteChestplateItem = new ItemVulcaniteArmor(Names.VULCANITE_CHESTPLATE, ModMaterial.armor, 0, EntityEquipmentSlot.CHEST);
 		ITEMS.add(vulcaniteChestplateItem);
 
-		vulcaniteLeggingsItem = new ItemVulcaniteArmor(Names.VULCANITE_LEGGINGS, MaterialHandler.vulcaniteArmorMaterial, 1, EntityEquipmentSlot.LEGS);
+		vulcaniteLeggingsItem = new ItemVulcaniteArmor(Names.VULCANITE_LEGGINGS, ModMaterial.armor, 1, EntityEquipmentSlot.LEGS);
 		ITEMS.add(vulcaniteLeggingsItem);
 
-		vulcaniteBootsItem = new ItemVulcaniteArmor(Names.VULCANITE_BOOTS, MaterialHandler.vulcaniteArmorMaterial, 0, EntityEquipmentSlot.FEET);
+		vulcaniteBootsItem = new ItemVulcaniteArmor(Names.VULCANITE_BOOTS, ModMaterial.armor, 0, EntityEquipmentSlot.FEET);
 		ITEMS.add(vulcaniteBootsItem);
 	}
 	

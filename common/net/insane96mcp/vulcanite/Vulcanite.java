@@ -2,6 +2,7 @@ package net.insane96mcp.vulcanite;
 
 import java.util.Random;
 
+import net.insane96mcp.vulcanite.proxies.CommonProxy;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -16,7 +17,7 @@ public class Vulcanite {
 	
 	public static final String MOD_ID = "vulcanite";
 	public static final String MOD_NAME = "Vulcanite";
-	public static final String VERSION = "1.2.2";
+	public static final String VERSION = "1.3.0";
 	public static final String RESOURCE_PREFIX = MOD_ID.toLowerCase() + ":";
 	
 	public static Configuration config;
@@ -26,7 +27,7 @@ public class Vulcanite {
 	@Instance(MOD_ID)
 	public static Vulcanite instance;
 	
-	@SidedProxy(clientSide = "net.insane96mcp.vulcanite.ClientProxy", serverSide = "net.insane96mcp.vulcanite.ServerProxy")
+	@SidedProxy(clientSide = "net.insane96mcp.vulcanite.proxies.ClientProxy", serverSide = "net.insane96mcp.vulcanite.proxies.ServerProxy")
 	public static CommonProxy proxy;
 	
 	@EventHandler

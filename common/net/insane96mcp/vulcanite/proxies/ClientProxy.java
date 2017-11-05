@@ -1,4 +1,4 @@
-package net.insane96mcp.vulcanite;
+package net.insane96mcp.vulcanite.proxies;
 
 import net.insane96mcp.vulcanite.init.ModBlocks;
 import net.insane96mcp.vulcanite.init.ModItems;

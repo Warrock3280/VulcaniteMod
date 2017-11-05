@@ -5,7 +5,11 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import net.insane96mcp.vulcanite.Vulcanite;
-import net.insane96mcp.vulcanite.init.ModItems;
+import net.insane96mcp.vulcanite.lib.Names;
+import net.insane96mcp.vulcanite.lib.Properties;
+import net.insane96mcp.vulcanite.lib.Tooltips;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,13 +27,17 @@ public class ItemVulcaniteAxe extends ItemAxe{
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		return "item." + Vulcanite.RESOURCE_PREFIX + net.insane96mcp.vulcanite.lib.Names.VULCANITE_AXE;
+		return "item." + Vulcanite.RESOURCE_PREFIX + Names.VULCANITE_AXE;
 	}
 	
 	@Override
 	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-		for (int i = 0; i < ModItems.armorLore.length; i++) {
-			tooltip.add(ModItems.armorLore[i]);
+		if (GuiScreen.isShiftKeyDown()) {
+			tooltip.add(I18n.format(Tooltips.Tool.adv_bonusEfficiency, Properties.Tools.bonusEfficency));
+		}
+		else {
+			tooltip.add(I18n.format(Tooltips.Tool.base_bonusEfficiency));
+			tooltip.add(I18n.format(Tooltips.General.shiftForMore));
 		}
 	}
 }
