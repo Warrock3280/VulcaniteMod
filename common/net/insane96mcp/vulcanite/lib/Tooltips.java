@@ -30,4 +30,10 @@ public class Tooltips {
 		
 		public static String adv_bonusEfficiency = "tooltip.tool.adv_info.more_efficient";
 	}
+	
+	public static class VulcaniteBlock{
+		public static String base_setOnFire = "tooltip.vulcanite_block.base_info.set_on_fire";
+
+		public static String adv_setOnFire = "tooltip.vulcanite_block.adv_info.set_on_fire";
+	}
 }

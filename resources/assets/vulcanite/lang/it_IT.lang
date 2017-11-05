@@ -29,3 +29,6 @@ tooltip.armor.adv_info.damage_reduction=§6L'armatura completa riduce il danno d
 tooltip.flint_and_vulcanite.base_info.set_on_fire=§6Clicca col Tasto Destro su un mob per dargli fuoco
 tooltip.flint_and_vulcanite.adv_info.set_on_fire=§6Clicca col Tasto Destro su un mob per dargli fuoco per §c%d§6 secondi
 tooltip.flint_and_vulcanite.adv_info.damage_on_use=§6Quando usato su di un mob, l'Acciarino in Vulcanite sarà danneggiato di §c%d
+
+tooltip.vulcanite_block.base_info.set_on_fire=§6Da' fuoco ai mob che ci sono sopra
+tooltip.vulcanite_block.adv_info.set_on_fire=§6Da' fuoco ai mob che ci sono sopra per §c%d§6 secondi
