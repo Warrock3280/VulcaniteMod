@@ -1,4 +1,4 @@
-package worldgen;
+package net.insane96mcp.vulcanite.worldgen;
 
 import java.util.Random;
 
