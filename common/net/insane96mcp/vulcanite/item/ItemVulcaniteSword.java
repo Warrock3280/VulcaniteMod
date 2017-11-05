@@ -29,10 +29,10 @@ public class ItemVulcaniteSword extends ItemSword{
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
 		if (GuiScreen.isShiftKeyDown()) {
-			tooltip.add(TextFormatting.GOLD + I18n.format(Tooltips.Weapon.adv_moreDamage, Stats.Tools.bonusDamagePerFALevel));
+			tooltip.add(I18n.format(Tooltips.Weapon.adv_moreDamage, Stats.Tools.bonusDamagePerFALevel));
 		}
 		else {
-			tooltip.add(TextFormatting.GOLD + I18n.format(Tooltips.Weapon.base_moreDamage));
+			tooltip.add(I18n.format(Tooltips.Weapon.base_moreDamage));
 			tooltip.add(I18n.format(Tooltips.General.shiftForMore));
 		}
 	}

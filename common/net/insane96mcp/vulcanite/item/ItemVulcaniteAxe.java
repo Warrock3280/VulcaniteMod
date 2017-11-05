@@ -28,6 +28,12 @@ public class ItemVulcaniteAxe extends ItemAxe{
 	
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
-		
+		if (GuiScreen.isShiftKeyDown()) {
+			tooltip.add(I18n.format(Tooltips.Tool.adv_bonusEfficiency, Stats.Tools.bonusEfficency));
+		}
+		else {
+			tooltip.add(I18n.format(Tooltips.Tool.base_bonusEfficiency));
+			tooltip.add(I18n.format(Tooltips.General.shiftForMore));
+		}
 	}
 }

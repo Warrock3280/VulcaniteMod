@@ -26,6 +26,8 @@ public class Tooltips {
 	}
 	
 	public static class Tool{
+		public static String base_bonusEfficiency = "tooltip.tool.base_info.more_efficient";
 		
+		public static String adv_bonusEfficiency = "tooltip.tool.adv_info.more_efficient";
 	}
 }

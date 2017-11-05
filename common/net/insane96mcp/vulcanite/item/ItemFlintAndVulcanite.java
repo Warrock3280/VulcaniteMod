@@ -38,11 +38,11 @@ public class ItemFlintAndVulcanite extends ItemFlintAndSteel{
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
 		if (GuiScreen.isShiftKeyDown()) {
-			tooltip.add(TextFormatting.GOLD + I18n.format(Tooltips.FlintAndVulcanite.adv_setOnFire, Stats.FlintAndVulcanite.secondsOnFire));
-			tooltip.add(TextFormatting.GOLD + I18n.format(Tooltips.FlintAndVulcanite.adv_damageOnUse, Stats.FlintAndVulcanite.damageOnUse));
+			tooltip.add(I18n.format(Tooltips.FlintAndVulcanite.adv_setOnFire, Stats.FlintAndVulcanite.secondsOnFire));
+			tooltip.add(I18n.format(Tooltips.FlintAndVulcanite.adv_damageOnUse, Stats.FlintAndVulcanite.damageOnUse));
 		}
 		else {
-			tooltip.add(TextFormatting.GOLD + I18n.format(Tooltips.FlintAndVulcanite.base_setOnFire));
+			tooltip.add(I18n.format(Tooltips.FlintAndVulcanite.base_setOnFire));
 			tooltip.add(I18n.format(Tooltips.General.shiftForMore));
 		}
 	}
