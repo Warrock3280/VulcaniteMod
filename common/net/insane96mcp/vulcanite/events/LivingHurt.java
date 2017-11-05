@@ -1,33 +1,21 @@
-package net.insane96mcp.vulcanite.lib;
+package net.insane96mcp.vulcanite.events;
 
-import net.insane96mcp.vulcanite.Vulcanite;
 import net.insane96mcp.vulcanite.init.ModItems;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockNetherBrick;
+import net.insane96mcp.vulcanite.lib.Stats;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Enchantments;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class CustomEventHandler {
-	
+public class LivingHurt {
+
 	@SubscribeEvent
 	public static void LivingHurtEvent(LivingHurtEvent event) {
 		OnPlayerHurt(event);
@@ -120,83 +108,5 @@ public class CustomEventHandler {
 		float bonusDamageDealth = damageDealth * ((Stats.Tools.bonusDamagePerFALevel / 100f) * fireAspectLevel);
 		
 		event.setAmount(damageDealth + bonusDamageDealth);
-	}
-	
-	private static ItemStack flintAndVulcanite = new ItemStack(ModItems.flintAndVulcaniteItem);
-	
-	@SubscribeEvent
-	public static void PlayerEntityInteract(PlayerInteractEvent.EntityInteract event) {
-		EntityPlayer player = event.getEntityPlayer();
-		ItemStack mainHand = player.getHeldItemMainhand();
-		ItemStack offHand = player.getHeldItemOffhand();
-		
-		if (!(ItemStack.areItemsEqualIgnoreDurability(mainHand, flintAndVulcanite)) && 
-			!(ItemStack.areItemsEqualIgnoreDurability(offHand, flintAndVulcanite)))
-			return;
-		
-		Entity target = event.getTarget();
-		
-		if (!(target instanceof EntityLivingBase))
-			return;
-		
-		EntityLivingBase entityLivingBase = (EntityLivingBase)target;
-		
-		if (entityLivingBase instanceof EntityPlayerMP && !Stats.FlintAndVulcanite.pvp)
-			return;
-		
-		if (entityLivingBase.isImmuneToFire())
-			return;
-		
-		entityLivingBase.setFire(Stats.FlintAndVulcanite.secondsOnFire);
-		if (entityLivingBase instanceof EntityCreeper) {
-			NBTTagCompound ignited = new NBTTagCompound();
-			ignited.setByte("ignited", (byte)1);
-			entityLivingBase.readEntityFromNBT(ignited);
-		}
-		if (ItemStack.areItemsEqualIgnoreDurability(mainHand, flintAndVulcanite)) {
-			player.swingArm(EnumHand.MAIN_HAND);
-			mainHand.damageItem(Stats.FlintAndVulcanite.damageOnUse, player);
-		}
-		else { 
-			player.swingArm(EnumHand.OFF_HAND);
-			offHand.damageItem(Stats.FlintAndVulcanite.damageOnUse, player);
-		}
-		
-		event.getWorld().playSound(player, entityLivingBase.getPosition(), SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS, 1.0f, event.getWorld().rand.nextFloat() * 0.4F + 0.8F);
-	}
-	
-	private static ItemStack[] validEfficencyBoost = new ItemStack[] {
-			new ItemStack(ModItems.vulcanitePickaxeItem),
-			new ItemStack(ModItems.vulcaniteAxeItem),
-			new ItemStack(ModItems.vulcaniteShovelItem),
-	};
-
-	@SubscribeEvent
-	public static void PlayerBreakSpeedEvent(PlayerEvent.BreakSpeed event) {
-		EntityPlayer player = event.getEntityPlayer();
-		
-		if (player.dimension != -1)
-			return;
-	
-		ItemStack mainHand = player.getHeldItemMainhand();
-		Block block = event.getState().getBlock();
-		boolean isValid = false;
-		
-		for (ItemStack itemStack : validEfficencyBoost) {
-			if (!ItemStack.areItemsEqualIgnoreDurability(mainHand, itemStack))
-				continue;
-
-			if (itemStack.getItem().getStrVsBlock(itemStack, event.getState()) > 1.0f) {
-				isValid = true;
-				break;
-			}
-		}
-		
-		if (!isValid)
-			return;
-		
-		float speed = event.getOriginalSpeed();
-		speed += event.getOriginalSpeed() * Stats.Tools.bonusEfficency / 100f;
-		event.setNewSpeed(speed);
 	}
 }
