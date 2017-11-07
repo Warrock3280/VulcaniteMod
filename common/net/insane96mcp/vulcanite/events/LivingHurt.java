@@ -36,10 +36,10 @@ public class LivingHurt {
 		EntityPlayer player = (EntityPlayer) event.getEntityLiving();
 		DamageSource source = event.getSource();
 		DamageSource[] validSources = new DamageSource[] {
-			DamageSource.IN_FIRE, 
-			DamageSource.ON_FIRE, 
-			DamageSource.HOT_FLOOR, 
-			DamageSource.LAVA
+			DamageSource.inFire,
+			DamageSource.onFire,
+			DamageSource.hotFloor,
+			DamageSource.lava
 		};
 		
 		float[] materialPerPiece = new float[] { 5, 8, 7, 4 };

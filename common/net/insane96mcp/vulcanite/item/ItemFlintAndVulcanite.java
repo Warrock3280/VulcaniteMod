@@ -48,20 +48,20 @@ public class ItemFlintAndVulcanite extends ItemFlintAndSteel{
 	}
 
 	@Override
-	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
 			EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (worldIn.getBlockState(pos).getBlock() == Blocks.TNT) {
 			if (!worldIn.isRemote)
 			{
 		        EntityTNTPrimed entitytntprimed = new EntityTNTPrimed(worldIn, (double)((float)pos.getX() + 0.5F), (double)pos.getY(), (double)((float)pos.getZ() + 0.5F), player);
-		        worldIn.spawnEntity(entitytntprimed);
+		        worldIn.spawnEntityInWorld(entitytntprimed);
                 worldIn.playSound((EntityPlayer)null, entitytntprimed.posX, entitytntprimed.posY, entitytntprimed.posZ, SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
 	        }
             worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 11);
-            player.getHeldItem(hand).damageItem(1, player);
+            stack.damageItem(1, player);
 
             return EnumActionResult.SUCCESS;
 		}
-		return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
+		return super.onItemUse(stack, player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
 	}
 }
