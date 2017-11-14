@@ -30,7 +30,7 @@ public class PlayerBreakSpeed {
 			if (!ItemStack.areItemsEqualIgnoreDurability(mainHand, itemStack))
 				continue;
 
-			if (itemStack.getItem().getStrVsBlock(itemStack, event.getState()) > 1.0f) {
+			if (itemStack.getItem().getDestroySpeed(itemStack, event.getState()) > 1.0f) {
 				isValid = true;
 				break;
 			}
