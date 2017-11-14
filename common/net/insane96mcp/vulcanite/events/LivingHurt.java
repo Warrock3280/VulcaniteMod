@@ -77,7 +77,7 @@ public class LivingHurt {
 		if (event.getSource().damageType != "player")
 			return;
 		
-		EntityPlayerMP player = (EntityPlayerMP) event.getSource().getEntity();
+		EntityPlayerMP player = (EntityPlayerMP) event.getSource().getTrueSource();
 		ItemStack heldItem = player.getHeldItemMainhand();
 		if (!ItemStack.areItemsEqualIgnoreDurability(heldItem, vulcaniteSword))
 			return;
