@@ -36,4 +36,9 @@ public class ItemVulcaniteShovel extends ItemSpade{
 			tooltip.add(I18n.format(Tooltips.General.shiftForMore));
 		}
 	}
+	
+	@Override
+	public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
+		return ItemStack.areItemsEqualIgnoreDurability(repair, new ItemStack(ModItems.vulcaniteItem)) ? true : super.getIsRepairable(toRepair, repair);
+	}
 }
