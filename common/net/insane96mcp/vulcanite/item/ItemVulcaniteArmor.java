@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import net.insane96mcp.vulcanite.Vulcanite;
+import net.insane96mcp.vulcanite.init.ModItems;
 import net.insane96mcp.vulcanite.lib.Properties;
 import net.insane96mcp.vulcanite.lib.Tooltips;
 import net.minecraft.client.gui.GuiScreen;
@@ -42,4 +43,9 @@ public class ItemVulcaniteArmor extends ItemArmor{
 			tooltip.add(I18n.format(Tooltips.General.shiftForMore));
 		}
 	}
+	
+	@Override
+	public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
+		return ItemStack.areItemsEqualIgnoreDurability(repair, new ItemStack(ModItems.vulcaniteItem)) ? true : super.getIsRepairable(toRepair, repair);
+  	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import net.insane96mcp.vulcanite.Vulcanite;
+import net.insane96mcp.vulcanite.init.ModItems;
 import net.insane96mcp.vulcanite.lib.Names;
 import net.insane96mcp.vulcanite.lib.Properties;
 import net.insane96mcp.vulcanite.lib.Tooltips;
@@ -12,10 +13,8 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 public class ItemVulcaniteAxe extends ItemAxe{
@@ -40,4 +39,9 @@ public class ItemVulcaniteAxe extends ItemAxe{
 			tooltip.add(I18n.format(Tooltips.General.shiftForMore));
 		}
 	}
+	
+	@Override
+	public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
+		return ItemStack.areItemsEqualIgnoreDurability(repair, new ItemStack(ModItems.vulcaniteItem)) ? true : super.getIsRepairable(toRepair, repair);
+  	}
 }
