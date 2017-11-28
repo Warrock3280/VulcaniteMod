@@ -1,28 +1,34 @@
-item.itemNet.name=Red de Pesca 
-item.itemFishmeal.name=Carnada 
-item.itemParchment.name=Parchment 
-tile.netDry.name=Dry fishing net 
-tile.netWet.name=Wet fishing 
-net
+﻿item.vulcanite:vulcanite.name=Vulcanita
+item.vulcanite:vulcanite_pickaxe.name=Pico de Vulcanita
+item.vulcanite:vulcanite_axe.name=Hacha de Vulcanita
+item.vulcanite:vulcanite_shovel.name=Pala de Vulcanita
+item.vulcanite:vulcanite_hoe.name=Azada de Vulcanita
+item.vulcanite:vulcanite_sword.name=Espada de Vulcanita
 
-achievement.fishingNet=Fisherman!
+item.vulcanite:flint_and_vulcanite.name=Pedernal y Vulcanita
 
-achievement.fishingNet.desc=Construye tu primera Red de Pesca!
+item.vulcanite:vulcanite_helmet.name=Casco de Vulcanita
+item.vulcanite:vulcanite_chestplate.name=Pechera de Vulcanita
+item.vulcanite:vulcanite_leggings.name=Pantalones de Vulcanita
+item.vulcanite:vulcanite_boots.name=Botas de Vulcanita
 
-achievement.magic=Magia del mar!
-achievement.magic.desc=Pesca un libro encantado de los abismos
+tile.vulcanite:vulcanite_block.name=Bloque de Vulcanita
+tile.vulcanite:vulcanite_ore.name=Mena de Vulcanita
 
-achievement.retiarius=Retiarius!
+tooltip.general.shift_for_more=§7Presiona SHIFT para mas info.
 
-achievement.retiarius.desc=Arroja tu red de pesca a alguien!
+tooltip.weapon.base_info.more_damage=§6Ejerce más dano a mobs ignifugos con Aspecto Igneo.
+tooltip.weapon.adv_info.more_damage=§6Ejerce §c%f%%§6 más dano a mobs ignifugos con Aspecto Igneo por cada nivel.
 
-subtitles.net.snatch=Fishingnet snatched
+tooltip.tool.base_info.more_efficient=§6En el Nether la herramienta son más eficientes.
+tooltip.tool.adv_info.more_efficient=§6En el Nether la herramienta mina bloques §c%f%%§6 más rápido!
 
-subtitles.net.swish=Entity entangled
+tooltip.armor.base_info.damage_reduction=§6Reduce el daño por fuego Reducción de daño por set completo de armadura:
+tooltip.armor.adv_info.damage_reduction=§6Reducción de daño por set completo de armadura:: §c%f%%§6. Una pieza de armadura reduce el daño basado en base a la cantidad de material usado para craftearlo.
 
-subtitles.net.splash=Fish enmeshed
+tooltip.flint_and_vulcanite.base_info.set_on_fire=§6Click derecho en el mob para prenderlo fuego.
+tooltip.flint_and_vulcanite.adv_info.set_on_fire=§6 Click derecho en el mob para prenderlo fuego §c%d§6 segundos.
+tooltip.flint_and_vulcanite.adv_info.damage_on_use=§6Cuando usado en un mob el Pedernal y Vulcanita causa daño por §c%d .
 
-subtitles.net.throw=Fishingnet 
-flies
-subtitles.net.bait=Adding bait
-
+tooltip.vulcanite_block.base_info.set_on_fire=§6Prende fuego al mob parado sobre el.
+tooltip.vulcanite_block.adv_info.set_on_fire=§6Mobs parados sobre el arderan por §c%d§6 segundos.
