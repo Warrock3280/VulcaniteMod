@@ -18,6 +18,9 @@ public class LivingHurt {
 
 	@SubscribeEvent
 	public static void LivingHurtEvent(LivingHurtEvent event) {
+		if (event.getEntityLiving().world.isRemote)
+			return;
+		
 		OnPlayerHurt(event);
 		OnPlayerDamageEntity(event);
 	}
@@ -74,10 +77,10 @@ public class LivingHurt {
 	private static ItemStack vulcaniteSword = new ItemStack(ModItems.vulcaniteSwordItem);
 	
 	public static void OnPlayerDamageEntity(LivingHurtEvent event) {
-		if (event.getSource().damageType != "player")
+		if (!(event.getSource().getSourceOfDamage() instanceof EntityPlayer))
 			return;
 		
-		EntityPlayerMP player = (EntityPlayerMP) event.getSource().getEntity();
+		EntityPlayer player = (EntityPlayer) event.getSource().getSourceOfDamage();
 		ItemStack heldItem = player.getHeldItemMainhand();
 		if (!ItemStack.areItemsEqualIgnoreDurability(heldItem, vulcaniteSword))
 			return;
