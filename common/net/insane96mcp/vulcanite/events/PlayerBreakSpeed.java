@@ -17,6 +17,8 @@ public class PlayerBreakSpeed {
 
 	@SubscribeEvent
 	public static void PlayerBreakSpeedEvent(PlayerEvent.BreakSpeed event) {
+		if (event.getEntityPlayer().world.isRemote)
+			return;
 		EntityPlayer player = event.getEntityPlayer();
 		
 		if (player.dimension != -1)
