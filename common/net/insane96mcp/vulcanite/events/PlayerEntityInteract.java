@@ -20,7 +20,10 @@ public class PlayerEntityInteract {
 	
 	@SubscribeEvent
 	public static void PlayerEntityInteractEvent(PlayerInteractEvent.EntityInteract event) {
-		EntityPlayer player = event.getEntityPlayer();
+		if (event.getWorld().isRemote)
+			return;
+		
+		EntityPlayerMP player = (EntityPlayerMP) event.getEntityPlayer();
 		ItemStack mainHand = player.getHeldItemMainhand();
 		ItemStack offHand = player.getHeldItemOffhand();
 		
@@ -42,15 +45,18 @@ public class PlayerEntityInteract {
 			return;
 		
 		entityLivingBase.setFire(Properties.FlintAndVulcanite.secondsOnFire);
+		
 		if (entityLivingBase instanceof EntityCreeper) {
 			NBTTagCompound ignited = new NBTTagCompound();
 			ignited.setByte("ignited", (byte)1);
 			entityLivingBase.readEntityFromNBT(ignited);
 		}
+		
 		if (ItemStack.areItemsEqualIgnoreDurability(mainHand, flintAndVulcanite)) {
 			player.swingArm(EnumHand.MAIN_HAND);
 			mainHand.damageItem(Properties.FlintAndVulcanite.damageOnUse, player);
 		}
+		
 		else { 
 			player.swingArm(EnumHand.OFF_HAND);
 			offHand.damageItem(Properties.FlintAndVulcanite.damageOnUse, player);

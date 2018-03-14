@@ -33,10 +33,10 @@ public class LivingHurt {
 	};
 	
 	public static void OnPlayerHurt(LivingHurtEvent event) {
-		if (!(event.getEntityLiving() instanceof EntityPlayer))
+		if (!(event.getEntityLiving() instanceof EntityPlayerMP))
 			return;
 		
-		EntityPlayer player = (EntityPlayer) event.getEntityLiving();
+		EntityPlayerMP player = (EntityPlayerMP) event.getEntityLiving();
 		DamageSource source = event.getSource();
 		DamageSource[] validSources = new DamageSource[] {
 			DamageSource.IN_FIRE, 
@@ -77,10 +77,10 @@ public class LivingHurt {
 	private static ItemStack vulcaniteSword = new ItemStack(ModItems.vulcaniteSwordItem);
 	
 	public static void OnPlayerDamageEntity(LivingHurtEvent event) {
-		if (!(event.getSource().getTrueSource() instanceof EntityPlayer))
+		if (!(event.getSource().getTrueSource() instanceof EntityPlayerMP))
 			return;
 		
-		EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
+		EntityPlayerMP player = (EntityPlayerMP) event.getSource().getTrueSource();
 		ItemStack heldItem = player.getHeldItemMainhand();
 		if (!ItemStack.areItemsEqualIgnoreDurability(heldItem, vulcaniteSword))
 			return;

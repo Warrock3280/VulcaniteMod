@@ -33,8 +33,6 @@ public class Properties {
 			enchantability = Config.LoadIntProperty("tools_and_weapon", "enchantability", "Enchantability for Vulcanite Tools and Sword", 16);
 			bonusDamagePerFALevel = Config.LoadFloatProperty("tools_and_weapon", "bonus_damage", "Bonus damage % dealt to Fire Immune mobs per Fire Aspect Level", 15f);
 			bonusEfficency = Config.LoadFloatProperty("tools_and_weapon", "bonus_efficency_in_nether", "Bonus Efficency % for tools when in the nether (100.0 means that the tool will be twice as fast in the nether)", 100f);
-			//bonusDurability = Config.LoadFloatProperty("tools_and_weapon", "bonus_durability_in_nether", "Bonus Durability % for tools when in the nether (100.0 means that the tool will be twice as fast in the nether)", 100f);
-			
 		}
 	}
 	
