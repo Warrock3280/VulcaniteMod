@@ -1,0 +1,34 @@
+item.vulcanite:vulcanite.name=Вулканит
+item.vulcanite:vulcanite_pickaxe.name=Вулканит
+item.vulcanite:vulcanite_axe.name=Вулканитовый Топор
+item.vulcanite:vulcanite_shovel.name=Вулканитовая Лопата
+item.vulcanite:vulcanite_hoe.name=Вулканитовая Мотыга
+item.vulcanite:vulcanite_sword.name=Вулканитовый Меч
+
+item.vulcanite:flint_and_vulcanite.name=Вулканитовое Огниво
+
+item.vulcanite:vulcanite_helmet.name=Вулканитовый Шлем
+item.vulcanite:vulcanite_chestplate.name=Вулканитовый Нагрудник
+item.vulcanite:vulcanite_leggings.name=Вулканитовые Поножи
+item.vulcanite:vulcanite_boots.name=Вулканитовые Ботинки
+
+tile.vulcanite:vulcanite_block.name=Вулканитовый Блок
+tile.vulcanite:vulcanite_ore.name=Вулканитовая Руда
+
+tooltip.general.shift_for_more=§7Зажмите Shift чтобы узнать больше...
+
+tooltip.weapon.base_info.more_damage=§6Наносит больше урона невосприимчивым к огню целям пока зачарован на Заговора Огня
+tooltip.weapon.adv_info.more_damage=§6Наносит на §c%f%%§6 больше урона невосприимчивым к огню целям за каждый уровень Заговора Огня
+
+tooltip.tool.base_info.more_efficient=§6Инструмент более эффективен в Нижнем Мире
+tooltip.tool.adv_info.more_efficient=§6В Нижнем Мире этот инструмент копает на §c%f%%§6 быстрее!
+
+tooltip.armor.base_info.damage_reduction=§6Снижает урон от огненных источников
+tooltip.armor.adv_info.damage_reduction=§6Сокращение огненного урона полным набором: §c%f%%§6. Один элемент брони снижает урон в зависимости от затраченных на него ресурсов.
+
+tooltip.flint_and_vulcanite.base_info.set_on_fire=§6ПКМ на существо подожжёт его
+tooltip.flint_and_vulcanite.adv_info.set_on_fire=§6ПКМ на существо подожжёт его на §c%d§6 секунд
+tooltip.flint_and_vulcanite.adv_info.damage_on_use=§6При использовании на моба потеряет §c%d прочности
+
+tooltip.vulcanite_block.base_info.set_on_fire=§6Поджигает стоящих на нём существ
+tooltip.vulcanite_block.adv_info.set_on_fire=§6Поджигает стоящих на нём существ на §c%d§6 секунд
